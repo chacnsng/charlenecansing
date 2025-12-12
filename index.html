@@ -149,32 +149,54 @@
 </header>
 
 <!-- HOME -->
-<section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-neutral-50 to-gray-100 pt-32">
-  <div class="container mx-auto px-6 lg:px-12 py-20">
+<section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-neutral-50 to-gray-100 pt-32 relative overflow-hidden">
+  <!-- Large decorative text background -->
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 text-[20rem] lg:text-[28rem] font-light text-gray-200/30 leading-none pointer-events-none select-none">
+    UX<br/>Design
+  </div>
+  
+  <div class="container mx-auto px-6 lg:px-12 py-20 relative z-10">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-      <div class="section-fade">
-        <img src="img/portfolioprofile.jpeg" class="w-full rounded-lg shadow-2xl object-cover hover:shadow-3xl transition-shadow duration-500" alt="Charlene Profile" />
+      <div class="space-y-8 section-fade">
+        <div class="space-y-6">
+          <h1 class="text-5xl lg:text-6xl font-light tracking-tight leading-tight">
+            Build Your<br/>
+            Online Presence<br/>
+            With Me.
+          </h1>
+          
+          <div class="flex items-center gap-4">
+            <a href="#contact">
+              <button class="px-6 py-3 bg-gray-900 text-white text-sm tracking-wide hover:bg-gray-800 transition-colors duration-300 flex items-center gap-2">
+                Contact Me
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </button>
+            </a>
+          </div>
+          
+          <p class="text-sm text-gray-500 max-w-md font-light leading-relaxed pt-2">
+            I optimize online visibility and create user-centered web solutions that drive results.
+          </p>
+        </div>
       </div>
 
-      <div class="space-y-8 section-fade">
-        <div class="space-y-4">
-          <h1 class="text-6xl lg:text-7xl font-light tracking-tight">Charlene Cansing</h1>
-          <div class="w-16 h-0.5 bg-gray-900"></div>
-          <p class="text-2xl font-light text-gray-600">SEO Specialist | Virtual Assistant | Web Developer</p>
-        </div>
-
-        <p class="text-lg text-gray-700 max-w-lg font-light leading-relaxed">Bridging digital marketing expertise with technical innovation. I optimize online visibility and create user-centered web solutions that drive results.</p>
-
-        <div class="flex gap-6">
-          <a href="#projects"><button class="px-8 py-3 bg-gray-900 text-white text-sm uppercase tracking-wider hover:bg-gray-800 transition-colors duration-300">View Projects</button></a>
-          <a href="#contact"><button class="px-8 py-3 border border-gray-900 text-sm uppercase tracking-wider hover:bg-gray-900 hover:text-white transition-all duration-300">Get in Touch</button></a>
-        </div>
-
-        <div class="scroll-indicator pt-8">
-          <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
+      <div class="section-fade flex justify-center lg:justify-end">
+        <div class="relative">
+          <!-- Circular background -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 lg:w-96 lg:h-96 bg-gray-200/50 rounded-full"></div>
+          
+          <!-- Image container with clip path -->
+          <div class="relative">
+            <img src="img/portfolioprofile.jpeg" class="relative w-64 h-80 lg:w-80 lg:h-96 object-cover shadow-2xl" style="clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);" alt="Charlene Profile" />
+            
+            <!-- Name label -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-6 py-2 shadow-lg">
+              <p class="text-sm font-medium text-gray-900">Charlene C.</p>
+            </div>
+          </div>
         </div>
       </div>
 
