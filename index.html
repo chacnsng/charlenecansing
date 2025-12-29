@@ -7,135 +7,264 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
-        body { font-family: 'Instrument Sans', sans-serif; }
+        body { font-family: 'Inter', -apple-system, system-ui, sans-serif; }
         
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
+        /* Typography */
+        @import url('https://fonts.bunny.net/css?family=inter:300,400,500,600');
+        
+        /* Smooth animations */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        .nav-link::after {
+        /* Custom gradient background */
+        .gradient-bg {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 50%, #efefef 100%);
+        }
+        
+        /* Navigation styles */
+        .nav-link {
+            position: relative;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link::before {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
+            bottom: -2px;
+            left: 50%;
             width: 0;
             height: 1px;
             background: currentColor;
-            transition: width 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
         }
         
-        .nav-link:hover::after {
+        .nav-link:hover::before {
             width: 100%;
         }
         
-        .section-fade {
+        /* Fade animations */
+        .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .section-fade.visible {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border-color: #e5e5e5;
+        }
+        
+        /* Project cards */
         .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.6) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
         }
         
         .project-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .project-card img {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        /* Skill badge */
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            background: #111827;
+            color: white;
+            transform: translateX(4px);
+        }
+        
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, #111827 0%, #e5e5e5 100%);
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #111827;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #e5e5e5;
+        }
+        
+        /* Certification cards */
+        .cert-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .cert-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        .cert-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .cert-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        
+        /* Modal */
         #modal {
-            backdrop-filter: blur(8px);
-            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(12px);
+            animation: modalFadeIn 0.3s ease;
         }
         
-        @keyframes fadeIn {
+        @keyframes modalFadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
         
-        .scroll-indicator {
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #111827;
-            box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1);
-        }
-        
-        .carousel-button {
-            transition: all 0.3s ease;
-        }
-        
-        .carousel-button:hover {
-            background: #111827;
-            color: white;
-            border-color: #111827;
-        }
-        
+        /* Scrollbar */
         ::-webkit-scrollbar {
-            height: 8px;
+            height: 6px;
+            width: 6px;
         }
         
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
+            background: #f5f5f5;
         }
         
         ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
+            background: #d4d4d4;
+            border-radius: 3px;
         }
         
         ::-webkit-scrollbar-thumb:hover {
-            background: #555;
+            background: #a3a3a3;
+        }
+        
+        /* Form focus */
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #111827;
+            box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.05);
+        }
+        
+        /* Number counter animation */
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        /* Decorative elements */
+        .decorative-line {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .decorative-line::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #111827;
         }
     </style>
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 </head>
-<body class="antialiased text-gray-900">
+<body class="antialiased text-gray-900 bg-white">
 
 <!-- HEADER -->
-<header class="bg-white/95 backdrop-blur-sm border-b border-gray-200 fixed top-0 left-0 w-full z-50 transition-all duration-300">
-  <div class="container mx-auto px-6 lg:px-12">
-    <div class="flex items-center justify-between py-6">
-      <a href="#home" class="text-2xl font-light tracking-tight hover:opacity-70 transition-opacity">Charlene.</a>
-      <nav class="hidden md:flex items-center space-x-10">
-        <a href="#home" class="nav-link text-gray-700 hover:text-gray-900">Home</a>
-        <a href="#about" class="nav-link text-gray-700 hover:text-gray-900">About</a>
-        <a href="#skills" class="nav-link text-gray-700 hover:text-gray-900">Skills</a>
-        <a href="#experience" class="nav-link text-gray-700 hover:text-gray-900">Experience</a>
-        <a href="#projects" class="nav-link text-gray-700 hover:text-gray-900">Projects</a>
-        <a href="#certifications" class="nav-link text-gray-700 hover:text-gray-900">Certifications</a>
-        <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900">Contact</a>
+<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100">
+  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+    <div class="flex items-center justify-between py-5">
+      <a href="#home" class="text-xl font-medium tracking-tight hover:opacity-60 transition-opacity">
+        CHARLENE
+      </a>
+      <nav class="hidden md:flex items-center space-x-8 text-sm">
+        <a href="#home" class="nav-link text-gray-600 hover:text-gray-900">Home</a>
+        <a href="#about" class="nav-link text-gray-600 hover:text-gray-900">About</a>
+        <a href="#skills" class="nav-link text-gray-600 hover:text-gray-900">Skills</a>
+        <a href="#experience" class="nav-link text-gray-600 hover:text-gray-900">Experience</a>
+        <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
+        <a href="#certifications" class="nav-link text-gray-600 hover:text-gray-900">Certifications</a>
+        <a href="#contact" class="btn-primary px-5 py-2 bg-gray-900 text-white text-xs tracking-wider hover:bg-gray-800 transition-all">
+          CONTACT
+        </a>
       </nav>
-      <button class="md:hidden hover:opacity-70 transition-opacity" id="mobile-menu-button" aria-label="Toggle menu">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+      <button class="md:hidden" id="mobile-menu-button" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
       </button>
     </div>
     <div id="mobile-menu" class="hidden pb-6 md:hidden">
-      <nav class="flex flex-col space-y-4 text-lg">
+      <nav class="flex flex-col space-y-4 text-sm">
         <a href="#home" class="hover:text-gray-600 transition-colors">Home</a>
         <a href="#about" class="hover:text-gray-600 transition-colors">About</a>
         <a href="#skills" class="hover:text-gray-600 transition-colors">Skills</a>
@@ -148,54 +277,72 @@
   </div>
 </header>
 
-<!-- HOME -->
-<section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-neutral-50 to-gray-100 pt-32 relative overflow-hidden">
-  <!-- Large decorative text background -->
-  <div class="absolute right-0 top-1/2 -translate-y-1/2 text-[20rem] lg:text-[28rem] font-light text-gray-200/30 leading-none pointer-events-none select-none">
-    UX<br/>Design
-  </div>
-  
-  <div class="container mx-auto px-6 lg:px-12 py-20 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-      <div class="space-y-8 section-fade">
+<!-- HOME HERO -->
+<section id="home" class="min-h-screen flex items-center gradient-bg pt-20">
+  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Content -->
+      <div class="lg:col-span-7 space-y-8 fade-in">
         <div class="space-y-6">
-          <h1 class="text-5xl lg:text-6xl font-light tracking-tight leading-tight">
-            Build Your<br/>
-            Online Presence<br/>
-            With Me.
+          <div class="inline-block">
+            <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Digital Specialist</span>
+          </div>
+          
+          <h1 class="text-6xl lg:text-7xl font-light tracking-tight leading-[1.1]">
+            Elevate Your<br/>
+            <span class="font-medium">Digital Presence</span>
           </h1>
           
-          <div class="flex items-center gap-4">
+          <p class="text-gray-600 text-lg font-light leading-relaxed max-w-xl">
+            SEO content specialist and virtual assistant crafting strategic digital solutions 
+            that enhance visibility and drive meaningful results.
+          </p>
+          
+          <div class="flex items-center gap-4 pt-4">
             <a href="#contact">
-              <button class="px-6 py-3 bg-gray-900 text-white text-sm tracking-wide hover:bg-gray-800 transition-colors duration-300 flex items-center gap-2">
-                Contact Me
+              <button class="btn-primary px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all flex items-center gap-3">
+                LET'S WORK TOGETHER
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </button>
             </a>
+            <a href="#projects">
+              <button class="px-8 py-4 border border-gray-300 text-xs tracking-widest hover:border-gray-900 transition-all">
+                VIEW WORK
+              </button>
+            </a>
           </div>
-          
-          <p class="text-sm text-gray-500 max-w-md font-light leading-relaxed pt-2">
-            I optimize online visibility and create user-centered web solutions that drive results.
-          </p>
+        </div>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+          <div>
+            <div class="text-3xl font-light stat-number mb-1">5+</div>
+            <div class="text-xs text-gray-500 tracking-wide uppercase">Years Experience</div>
+          </div>
+          <div>
+            <div class="text-3xl font-light stat-number mb-1">10+</div>
+            <div class="text-xs text-gray-500 tracking-wide uppercase">Projects</div>
+          </div>
+          <div>
+            <div class="text-3xl font-light stat-number mb-1">7+</div>
+            <div class="text-xs text-gray-500 tracking-wide uppercase">Certifications</div>
+          </div>
         </div>
       </div>
 
-      <div class="section-fade flex justify-center lg:justify-end">
+      <!-- Right Image -->
+      <div class="lg:col-span-5 fade-in flex justify-center lg:justify-end">
         <div class="relative">
-          <!-- Circular background -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 lg:w-96 lg:h-96 bg-gray-200/50 rounded-full"></div>
-          
-          <!-- Image container with clip path -->
-          <div class="relative">
-            <img src="img/portfolioprofile.jpeg" class="relative w-64 h-80 lg:w-80 lg:h-96 object-cover shadow-2xl" style="clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);" alt="Charlene Profile" />
-            
-            <!-- Name label -->
-            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-6 py-2 shadow-lg">
-              <p class="text-sm font-medium text-gray-900">Charlene C.</p>
-            </div>
+          <div class="absolute -top-8 -left-8 w-64 h-64 bg-gray-200 rounded-full opacity-20"></div>
+          <img src="img/portfolioprofile.jpeg" 
+               class="relative w-80 h-96 object-cover rounded-sm shadow-2xl" 
+               alt="Charlene Cansing" />
+          <div class="absolute -bottom-6 -right-6 bg-white px-8 py-4 shadow-xl rounded-sm">
+            <p class="text-sm font-medium tracking-wide">CHARLENE CANSING</p>
+            <p class="text-xs text-gray-500 mt-1">SEO & Virtual Assistant</p>
           </div>
         </div>
       </div>
@@ -206,45 +353,65 @@
 
 <!-- ABOUT -->
 <section id="about" class="py-32 bg-white">
-  <div class="container mx-auto px-6 lg:px-12">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+    <div class="grid lg:grid-cols-12 gap-16 items-start">
 
-      <div class="section-fade">
-        <h2 class="text-5xl font-light tracking-tight mb-8">About Me</h2>
-        <div class="w-20 h-1 bg-gray-900 mb-8"></div>
-        <p class="text-gray-700 text-lg font-light leading-relaxed mb-6">
-          I'm a motivated BSIT student at the University of Mindanao Digos College with five years of hands-on experience as an SEO Specialist and Virtual Assistant. My journey spans e-commerce operations, digital marketing, and web development.
-        </p>
-        <p class="text-gray-600 text-base font-light leading-relaxed mb-6">
-          What sets me apart is my unique blend of technical skills and marketing expertise. I've helped businesses improve their organic visibility through strategic SEO while also building the technical infrastructure that powers modern digital experiences.
-        </p>
-        <p class="text-gray-600 text-base font-light leading-relaxed mb-8">
-          My professional mission is to create digital solutions that not only look beautiful but also perform strategically—combining clean code, user-centered design, and data-driven optimization to deliver measurable results.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="https://drive.google.com/file/d/1twgrJ5Z5Fx1QrH01ytoQGMzyqTlpqdj3/view" target="_blank" class="px-8 py-3 bg-gray-900 text-white uppercase text-sm tracking-wider hover:bg-gray-800 transition-colors duration-300">View CV</a>
-          <a href="https://drive.google.com/uc?export=download&id=1twgrJ5Z5Fx1QrH01ytoQGMzyqTlpqdj3" class="px-8 py-3 border border-gray-900 text-sm uppercase tracking-wider hover:bg-gray-900 hover:text-white transition-all duration-300">Download CV</a>
+      <!-- Left Stats -->
+      <div class="lg:col-span-5 fade-in space-y-12">
+        <div>
+          <h2 class="text-5xl font-light tracking-tight mb-6 decorative-line">About Me</h2>
+        </div>
+        
+        <div class="space-y-8">
+          <div class="flex items-start gap-6 card-hover p-6 rounded-sm bg-gray-50">
+            <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-medium mb-2">Strategic Approach</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">Combining technical expertise with creative solutions for measurable digital growth</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start gap-6 card-hover p-6 rounded-sm bg-gray-50">
+            <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-medium mb-2">Results-Driven</h3>
+              <p class="text-sm text-gray-600 leading-relaxed">Focused on delivering tangible outcomes through data-driven optimization strategies</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="section-fade">
-        <div class="grid grid-cols-2 gap-8">
-          <div class="border-l-2 border-gray-900 pl-6">
-            <h3 class="text-3xl font-light mb-2">5</h3>
-            <p class="text-gray-600 text-sm">Years Experience</p>
-          </div>
-          <div class="border-l-2 border-gray-900 pl-6">
-            <h3 class="text-3xl font-light mb-2">10+</h3>
-            <p class="text-gray-600 text-sm">Projects Completed</p>
-          </div>
-          <div class="border-l-2 border-gray-900 pl-6">
-            <h3 class="text-3xl font-light mb-2">7+</h3>
-            <p class="text-gray-600 text-sm">Certifications</p>
-          </div>
-          <div class="border-l-2 border-gray-900 pl-6">
-            <h3 class="text-3xl font-light mb-2">∞</h3>
-            <p class="text-gray-600 text-sm">Learning & Growing</p>
-          </div>
+      <!-- Right Content -->
+      <div class="lg:col-span-7 fade-in space-y-6">
+        <p class="text-xl text-gray-700 font-light leading-relaxed">
+          I'm a BSIT student at the University of Mindanao Digos College with five years of hands-on experience as an SEO Content Specialist and Virtual Assistant.
+        </p>
+        
+        <p class="text-gray-600 leading-relaxed">
+          My journey spans content creation, WordPress management, Google My Business optimization, and e-commerce operations. I've helped businesses improve their online visibility through strategic content writing, image optimization, backlink building, and consistent social media management—all backed by data-driven reporting.
+        </p>
+        
+        <p class="text-gray-600 leading-relaxed">
+          What sets me apart is my practical approach to SEO and digital presence. I combine technical precision with creative strategy to build solutions that not only look polished but perform strategically, delivering measurable results that matter.
+        </p>
+        
+        <div class="pt-6 flex flex-wrap gap-4">
+          <a href="https://drive.google.com/file/d/1twgrJ5Z5Fx1QrH01ytoQGMzyqTlpqdj3/view" target="_blank" 
+             class="btn-primary px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all">
+            VIEW RESUME
+          </a>
+          <a href="https://drive.google.com/uc?export=download&id=1twgrJ5Z5Fx1QrH01ytoQGMzyqTlpqdj3" 
+             class="px-8 py-4 border border-gray-300 text-xs tracking-widest hover:border-gray-900 hover:bg-gray-50 transition-all">
+            DOWNLOAD CV
+          </a>
         </div>
       </div>
 
@@ -252,504 +419,537 @@
   </div>
 </section>
 
-<!-- SKILLS & EXPERTISE -->
-<section id="skills" class="py-32 bg-gradient-to-br from-neutral-50 to-gray-100">
-  <div class="container mx-auto px-6 lg:px-12">
-    <div class="section-fade">
-      <h2 class="text-5xl font-light tracking-tight mb-4">Skills & Expertise</h2>
-      <div class="w-20 h-1 bg-gray-900 mb-12"></div>
+<!-- SKILLS -->
+<section id="skills" class="py-32 gradient-bg">
+  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+    <div class="fade-in text-center mb-16">
+      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">What I Do</span>
+      <h2 class="text-5xl font-light tracking-tight mt-4">Skills & Expertise</h2>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 section-fade">
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-medium mb-4 text-gray-900">SEO & Digital Marketing</h3>
-        <ul class="space-y-2 text-gray-600">
-          <li>• Keyword Research & Strategy</li>
-          <li>• On-Page & Off-Page SEO</li>
-          <li>• Content Optimization</li>
-          <li>• Google Analytics & Search Console</li>
-          <li>• Competitor Analysis</li>
-        </ul>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+      
+      <div class="card-hover bg-white p-8 rounded-sm">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-medium mb-4">SEO & Content</h3>
+        <div class="space-y-2">
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">WordPress</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Image SEO</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Backlinks</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">GMB</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Semrush</div>
+        </div>
       </div>
 
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-medium mb-4 text-gray-900">Web Development</h3>
-        <ul class="space-y-2 text-gray-600">
-          <li>• HTML, CSS, JavaScript</li>
-          <li>• Responsive Design</li>
-          <li>• UI/UX Design Principles</li>
-          <li>• Website Optimization</li>
-          <li>• Front-End Frameworks</li>
-        </ul>
+      <div class="card-hover bg-white p-8 rounded-sm">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-medium mb-4">Web Development</h3>
+        <div class="space-y-2">
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">HTML/CSS</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">JavaScript</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Responsive Design</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">UI/UX</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Optimization</div>
+        </div>
       </div>
 
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-medium mb-4 text-gray-900">E-Commerce & Operations</h3>
-        <ul class="space-y-2 text-gray-600">
-          <li>• Walmart Marketplace Management</li>
-          <li>• Product Sourcing & Listings</li>
-          <li>• Order Processing & Fulfillment</li>
-          <li>• Inventory Management</li>
-          <li>• Customer Service</li>
-        </ul>
+      <div class="card-hover bg-white p-8 rounded-sm">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-medium mb-4">E-Commerce</h3>
+        <div class="space-y-2">
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Walmart Marketplace</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Product Sourcing</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Listings</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Inventory</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Fulfillment</div>
+        </div>
       </div>
 
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-medium mb-4 text-gray-900">Administrative Support</h3>
-        <ul class="space-y-2 text-gray-600">
-          <li>• Data Entry & Management</li>
-          <li>• Lead Generation & Qualification</li>
-          <li>• Project Management</li>
-          <li>• Email Marketing</li>
-          <li>• Documentation & Reporting</li>
-        </ul>
+      <div class="card-hover bg-white p-8 rounded-sm">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-medium mb-4">Admin Support</h3>
+        <div class="space-y-2">
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Data Entry</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Lead Generation</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Project Management</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Email Marketing</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Documentation</div>
+        </div>
       </div>
 
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-medium mb-4 text-gray-900">Social Media Management</h3>
-        <ul class="space-y-2 text-gray-600">
-          <li>• LinkedIn Profile Management</li>
-          <li>• Content Strategy</li>
-          <li>• Engagement & Networking</li>
-          <li>• Brand Positioning</li>
-          <li>• Analytics & Insights</li>
-        </ul>
+      <div class="card-hover bg-white p-8 rounded-sm">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-medium mb-4">Social Media</h3>
+        <div class="space-y-2">
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">LinkedIn</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Content Strategy</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Engagement</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Brand Positioning</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Analytics</div>
+        </div>
       </div>
 
-      <div class="bg-white p-8 rounded-lg shadow-md">
-        <h3 class="text-xl font-medium mb-4 text-gray-900">Creative Tools</h3>
-        <ul class="space-y-2 text-gray-600">
-          <li>• Canva Design</li>
-          <li>• Photo & Video Editing</li>
-          <li>• Presentation Design</li>
-          <li>• Visual Content Creation</li>
-          <li>• Brand Assets Development</li>
-        </ul>
+      <div class="card-hover bg-white p-8 rounded-sm">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-medium mb-4">Creative Tools</h3>
+        <div class="space-y-2">
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Canva</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Photo Editing</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Video Editing</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Presentations</div>
+          <div class="skill-badge inline-block px-3 py-1 bg-gray-100 rounded-full text-xs mr-2 mb-2">Brand Assets</div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience" class="py-32 bg-white">
-  <div class="container mx-auto px-6 lg:px-12">
-    <div class="section-fade">
-      <h2 class="text-5xl font-light tracking-tight mb-4">Experience</h2>
-      <div class="w-20 h-1 bg-gray-900 mb-12"></div>
+  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+    <div class="fade-in text-center mb-16">
+      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Career Journey</span>
+      <h2 class="text-5xl font-light tracking-tight mt-4">Experience</h2>
     </div>
 
-    <div class="space-y-12 section-fade">
-      <div class="border-l-2 border-gray-300 pl-8 pb-8">
-        <div class="flex flex-wrap justify-between items-start mb-3">
+    <div class="max-w-4xl mx-auto space-y-12 fade-in">
+      
+      <div class="timeline-item pb-12">
+        <div class="flex flex-wrap justify-between items-start mb-4">
           <div>
-            <h3 class="text-2xl font-medium text-gray-900">SEO Specialist</h3>
-            <p class="text-gray-600">QuickDesk Virtual Solutions</p>
+            <h3 class="text-xl font-medium">SEO Content Specialist</h3>
+            <p class="text-gray-600 text-sm mt-1">QuickDesk Virtual Solutions (Outsourced)</p>
           </div>
-          <span class="text-gray-500 text-sm">July 2025 – November 2025</span>
+          <span class="text-gray-400 text-xs tracking-wider mt-2">JUL 2025 – NOV 2025</span>
         </div>
-        <ul class="space-y-2 text-gray-600 mt-4">
-          <li>• Conducted extensive keyword research to identify ranking opportunities for client websites</li>
-          <li>• Optimized on-page SEO elements including titles, meta descriptions, headers, and URLs</li>
-          <li>• Created SEO-driven content outlines to improve page relevance and user engagement</li>
-          <li>• Performed competitor analysis to guide content strategy and ranking improvements</li>
-          <li>• Utilized Google Search Console, Google Analytics, Ubersuggest, and Semrush for monitoring</li>
-          <li>• Improved organic traffic and search visibility for small business clients</li>
+        <ul class="space-y-3 text-gray-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Wrote and published SEO-optimized blog content using WordPress CMS</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Optimized images with proper alt text, titles, captions, and descriptions for better search visibility</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Built quality backlinks to improve domain authority and search rankings</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Created and updated Google My Business posts to enhance local SEO presence</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Managed social media posting to support content distribution and engagement</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Generated monthly SEO performance reports using Semrush analytics</span>
+          </li>
         </ul>
       </div>
 
-      <div class="border-l-2 border-gray-300 pl-8 pb-8">
-        <div class="flex flex-wrap justify-between items-start mb-3">
+      <div class="timeline-item pb-12">
+        <div class="flex flex-wrap justify-between items-start mb-4">
           <div>
-            <h3 class="text-2xl font-medium text-gray-900">General Virtual Assistant</h3>
-            <p class="text-gray-600">Innosky Company</p>
+            <h3 class="text-xl font-medium">General Virtual Assistant</h3>
+            <p class="text-gray-600 text-sm mt-1">Innosky Company</p>
           </div>
-          <span class="text-gray-500 text-sm">December 2022 – August 2025</span>
+          <span class="text-gray-400 text-xs tracking-wider mt-2">DEC 2022 – AUG 2025</span>
         </div>
-        <ul class="space-y-2 text-gray-600 mt-4">
-          <li>• Managed LinkedIn accounts of developers to boost professional networking and visibility</li>
-          <li>• Sourced and qualified leads, scheduling meetings through Airtable</li>
-          <li>• Created customized CVs and professional documents using Canva</li>
-          <li>• Supported administrative and client-facing tasks to improve business efficiency</li>
+        <ul class="space-y-3 text-gray-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Managed LinkedIn accounts of developers to boost professional networking and visibility</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Sourced and qualified leads, scheduling meetings through Airtable</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Created customized CVs and professional documents using Canva</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Supported administrative and client-facing tasks to improve business efficiency</span>
+          </li>
         </ul>
       </div>
 
-      <div class="border-l-2 border-gray-300 pl-8 pb-8">
-        <div class="flex flex-wrap justify-between items-start mb-3">
+      <div class="timeline-item pb-12">
+        <div class="flex flex-wrap justify-between items-start mb-4">
           <div>
-            <h3 class="text-2xl font-medium text-gray-900">Account Manager</h3>
-            <p class="text-gray-600">Bottom Line Concepts, LLC</p>
+            <h3 class="text-xl font-medium">Account Manager</h3>
+            <p class="text-gray-600 text-sm mt-1">Bottom Line Concepts, LLC</p>
           </div>
-          <span class="text-gray-500 text-sm">August 2021 – Present</span>
+          <span class="text-gray-400 text-xs tracking-wider mt-2">AUG 2021 – PRESENT</span>
         </div>
-        <ul class="space-y-2 text-gray-600 mt-4">
-          <li>• Assisted in client account management and communication for a cost-savings consultancy</li>
-          <li>• Supported administrative and back-end operations to ensure smooth client engagement</li>
-          <li>• Coordinated with team members to maintain accurate records and follow-ups</li>
+        <ul class="space-y-3 text-gray-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Assisted in client account management and communication for a cost-savings consultancy</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Supported administrative and back-end operations to ensure smooth client engagement</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Coordinated with team members to maintain accurate records and follow-ups</span>
+          </li>
         </ul>
       </div>
 
-      <div class="border-l-2 border-gray-300 pl-8 pb-8">
-        <div class="flex flex-wrap justify-between items-start mb-3">
+      <div class="timeline-item pb-12">
+        <div class="flex flex-wrap justify-between items-start mb-4">
           <div>
-            <h3 class="text-2xl font-medium text-gray-900">Virtual Assistant</h3>
-            <p class="text-gray-600">QuickDesk Virtual Solutions</p>
+            <h3 class="text-xl font-medium">Virtual Assistant</h3>
+            <p class="text-gray-600 text-sm mt-1">QuickDesk Virtual Solutions</p>
           </div>
-          <span class="text-gray-500 text-sm">January 2022 – October 2022</span>
+          <span class="text-gray-400 text-xs tracking-wider mt-2">JAN 2022 – OCT 2022</span>
         </div>
-        <ul class="space-y-2 text-gray-600 mt-4">
-          <li>• Performed SEO tasks including keyword research and content optimization</li>
-          <li>• Handled data entry projects with accuracy and confidentiality</li>
-          <li>• Generated and verified leads for business outreach and sales campaigns</li>
+        <ul class="space-y-3 text-gray-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Performed SEO tasks including keyword research and content optimization</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Handled data entry projects with accuracy and confidentiality</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Generated and verified leads for business outreach and sales campaigns</span>
+          </li>
         </ul>
       </div>
 
-      <div class="border-l-2 border-gray-300 pl-8">
-        <div class="flex flex-wrap justify-between items-start mb-3">
+      <div class="timeline-item">
+        <div class="flex flex-wrap justify-between items-start mb-4">
           <div>
-            <h3 class="text-2xl font-medium text-gray-900">Walmart Dropshipping Virtual Assistant</h3>
-            <p class="text-gray-600">Drop it like a Box LLC, Waller Distributing LLC, GoGoGazelle LLC</p>
+            <h3 class="text-xl font-medium">Walmart Dropshipping VA</h3>
+            <p class="text-gray-600 text-sm mt-1">Multiple E-Commerce Companies</p>
           </div>
-          <span class="text-gray-500 text-sm">August 2020 – December 2021</span>
+          <span class="text-gray-400 text-xs tracking-wider mt-2">AUG 2020 – DEC 2021</span>
         </div>
-        <ul class="space-y-2 text-gray-600 mt-4">
-          <li>• Researched and sourced profitable products for Walmart Marketplace</li>
-          <li>• Created and uploaded bulk product listings using Walmart Seller Center and OA Genius</li>
-          <li>• Updated prices and inventory to ensure listings were accurate</li>
-          <li>• Processed daily orders by placing them with suppliers (Amazon, Home Depot)</li>
-          <li>• Tracked and confirmed shipment status for customer orders</li>
+        <ul class="space-y-3 text-gray-600 text-sm leading-relaxed">
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Researched and sourced profitable products for Walmart Marketplace</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Created and uploaded bulk product listings using Walmart Seller Center and OA Genius</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Updated prices and inventory to ensure listings were accurate</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">•</span>
+            <span>Processed daily orders and tracked shipment status for customer orders</span>
+          </li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="py-32 bg-gradient-to-br from-neutral-50 to-gray-100">
-  <div class="container mx-auto px-6 lg:px-12">
-    <div class="section-fade">
-      <h2 class="text-5xl font-light tracking-tight mb-4">Projects</h2>
-      <div class="w-20 h-1 bg-gray-900 mb-12"></div>
+<section id="projects" class="py-32 gradient-bg">
+  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+    <div class="fade-in text-center mb-16">
+      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Portfolio</span>
+      <h2 class="text-5xl font-light tracking-tight mt-4">Featured Projects</h2>
     </div>
 
-    <div class="flex justify-between items-center mb-8">
-      <p class="text-gray-600">Explore my recent work</p>
-      <div class="flex gap-3">
-        <button id="proj-prev" class="carousel-button w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full" aria-label="Previous project">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-        <button id="proj-next" class="carousel-button w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full" aria-label="Next project">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </button>
-      </div>
-    </div>
-
-    <div id="proj-carousel" class="flex overflow-x-scroll space-x-8 pb-6 snap-x scroll-smooth section-fade">
-
-      <div class="min-w-[320px] snap-start project-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer" 
-           data-project="intellect-connect"
-           data-image="img/IntellectConnect.jpg"
-           data-video="img/IC Demo Video.mp4">
-        <img src="img/IntellectConnect.jpg" class="w-full h-56 object-cover">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+      
+      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group">
+        <div class="relative overflow-hidden h-64">
+          <img src="img/IntellectConnect.jpg" class="w-full h-full object-cover" alt="Intellect Connect">
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-medium mb-2">Intellect Connect</h3>
+          <h3 class="text-lg font-medium mb-2">Intellect Connect</h3>
           <p class="text-sm text-gray-600">Tutoring and Learning Support Platform</p>
         </div>
       </div>
 
-      <div class="min-w-[320px] snap-start project-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer" 
-           data-project="gora"
-           data-image="img/Gora.png"
-           data-video="img/IC Demo Video.mp4">
-        <img src="img/Gora.png" class="w-full h-56 object-cover">
+      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group">
+        <div class="relative overflow-hidden h-64">
+          <img src="img/Gora.png" class="w-full h-full object-cover" alt="Gora">
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-medium mb-2">Gora</h3>
+          <h3 class="text-lg font-medium mb-2">Gora</h3>
           <p class="text-sm text-gray-600">Your AI Travel Buddy</p>
         </div>
       </div>
 
-      <div class="min-w-[320px] snap-start project-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer" 
-           data-project="picsure"
-           data-image="img/Picsure.png"
-           data-video="img/IC Demo Video.mp4">
-        <img src="img/Picsure.png" class="w-full h-56 object-cover">
+      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group">
+        <div class="relative overflow-hidden h-64">
+          <img src="img/Picsure.png" class="w-full h-full object-cover" alt="Picsure">
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-medium mb-2">Picsure Photo Booth System</h3>
-          <p class="text-sm text-gray-600">AI-Powered ID Generation</p>
+          <h3 class="text-lg font-medium mb-2">Picsure Photo Booth</h3>
+          <p class="text-sm text-gray-600">AI-Powered ID Generation System</p>
         </div>
       </div>
 
-      <div class="min-w-[320px] snap-start project-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer" 
-           data-project="higanteng"
-           data-image="img/Picture1.jpg"
-           data-video="img/IC Demo Video.mp4">
-        <img src="img/Picture1.jpg" class="w-full h-56 object-cover">
+      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group">
+        <div class="relative overflow-hidden h-64">
+          <img src="img/Picture1.jpg" class="w-full h-full object-cover" alt="Higanteng Laagan">
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-medium mb-2">Higanteng Laagan Travel System</h3>
+          <h3 class="text-lg font-medium mb-2">Higanteng Laagan</h3>
           <p class="text-sm text-gray-600">Tour Booking Platform</p>
         </div>
       </div>
 
-      <div class="min-w-[320px] snap-start project-card bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer" 
-           data-project="jobspotter"
-           data-image="img/JobSpotter.png"
-           data-video="img/IC Demo Video.mp4">
-        <img src="img/JobSpotter.png" class="w-full h-56 object-cover">
+      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group">
+        <div class="relative overflow-hidden h-64">
+          <img src="img/JobSpotter.png" class="w-full h-full object-cover" alt="Job Spotter">
+        </div>
         <div class="p-6">
-          <h3 class="text-xl font-medium mb-2">Job Spotter</h3>
-          <p class="text-sm text-gray-600">Mobile Job Finder App</p>
+          <h3 class="text-lg font-medium mb-2">Job Spotter</h3>
+          <p class="text-sm text-gray-600">Mobile Job Finder Application</p>
         </div>
       </div>
 
     </div>
   </div>
 </section>
-
-<!-- PROJECT MODAL -->
-<div id="project-modal" class="fixed inset-0 bg-black/90 flex items-center justify-center hidden z-50 p-6">
-  <div class="relative w-full max-w-5xl">
-    <button id="project-modal-close" class="absolute -top-12 right-0 text-white text-4xl hover:opacity-70 transition-opacity" aria-label="Close modal">&times;</button>
-    
-    <div class="bg-white rounded-lg overflow-hidden">
-      <div id="project-gallery-container" class="relative bg-black flex items-center justify-center" style="min-height: 500px;">
-        <!-- Content will be injected here -->
-      </div>
-      
-      <div class="flex justify-between items-center p-6 border-t border-gray-200">
-        <button id="gallery-prev" class="gallery-nav-btn px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-          Previous
-        </button>
-        <div id="gallery-counter" class="text-gray-600 font-medium"></div>
-        <button id="gallery-next" class="gallery-nav-btn px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-          Next
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <!-- CERTIFICATIONS -->
 <section id="certifications" class="py-32 bg-white">
-  <div class="container mx-auto px-6 lg:px-12">
-    <div class="section-fade">
-      <h2 class="text-5xl font-light tracking-tight mb-4">Certifications</h2>
-      <div class="w-20 h-1 bg-gray-900 mb-12"></div>
+  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+    <div class="fade-in text-center mb-16">
+      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Credentials</span>
+      <h2 class="text-5xl font-light tracking-tight mt-4">Certifications</h2>
     </div>
 
-    <div class="flex justify-between items-center mb-8">
-      <p class="text-gray-600">Professional achievements & credentials</p>
-      <div class="flex gap-3">
-        <button id="cert-prev" class="carousel-button w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full" aria-label="Previous certification">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-        <button id="cert-next" class="carousel-button w-10 h-10 flex items-center justify-center border border-gray-300 rounded-full" aria-label="Next certification">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-        </button>
-      </div>
-    </div>
-
-    <div id="cert-carousel" class="flex overflow-x-scroll space-x-6 pb-6 snap-x scroll-smooth section-fade">
-      <div class="min-w-[280px] snap-start cert-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
-        <img src="img/Cisco - Cyber Threat Management.png" class="cert-img h-44 w-full object-cover cursor-pointer" alt="Cyber Threat Management" />
-        <div class="p-4">
-          <p class="text-center text-sm font-medium text-gray-800">Microsoft Productivity Tools</p>
-          <p class="text-center text-xs text-gray-500 mt-1">Course Bank</p>
-        </div>
-      </div>
-      <div class="min-w-[280px] snap-start cert-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
-        <img src="img/Course Bank - Navigating Google Workspace.jpg" class="cert-img h-44 w-full object-cover cursor-pointer" alt="Navigating Google Workspace" />
-        <div class="p-4">
-          <p class="text-center text-sm font-medium text-gray-800">Navigating Google Workspace</p>
-          <p class="text-center text-xs text-gray-500 mt-1">Course Bank</p>
-        </div>
-      </div>
-      <div class="min-w-[280px] snap-start cert-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
-        <img src="img/Great Learning - Programming Basics.png" class="cert-img h-44 w-full object-cover cursor-pointer" alt="Programming Basics" />
-        <div class="p-4">
-          <p class="text-center text-sm font-medium text-gray-800">Programming Basics</p>
-          <p class="text-center text-xs text-gray-500 mt-1">Great Learning</p>
-        </div>
-      </div>
-      <div class="min-w-[280px] snap-start cert-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
-        <img src="img/Cisco - Cyber Threat Management.png" class="cert-img h-44 w-full object-cover cursor-pointer" alt="Programming Basics" />
-        <div class="p-4">
-          <p class="text-center text-sm font-medium text-gray-800">Cyber Threat Management</p>
-          <p class="text-center text-xs text-gray-500 mt-1">Cisco</p>
-        </div>
-      </div>
+    <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6 fade-in">
       
-      <div class="min-w-[280px] snap-start cert-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
-        <img src="img/Cisco - Introduction to Cybersecurity.png" class="cert-img h-44 w-full object-cover cursor-pointer" alt="Introduction to Cybersecurity" />
+      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
+        <img src="img/Course Bank - Microsoft Productivity Tool.jpg" class="w-full h-48 object-cover" alt="Microsoft Productivity Tools">
         <div class="p-4">
-          <p class="text-center text-sm font-medium text-gray-800">Introduction to Cybersecurity</p>
-          <p class="text-center text-xs text-gray-500 mt-1">Cisco</p>
+          <p class="text-sm font-medium text-center">Microsoft Productivity Tools</p>
+          <p class="text-xs text-gray-500 text-center mt-1">Course Bank</p>
         </div>
       </div>
-      <div class="min-w-[280px] snap-start cert-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
-        <img src="img/Cisco - Network Defense.png" class="cert-img h-44 w-full object-cover cursor-pointer" alt="Network Defense" />
+
+      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
+        <img src="img/Course Bank - Navigating Google Workspace.jpg" class="w-full h-48 object-cover" alt="Google Workspace">
         <div class="p-4">
-          <p class="text-center text-sm font-medium text-gray-800">Network Defense</p>
-          <p class="text-center text-xs text-gray-500 mt-1">Cisco</p>
+          <p class="text-sm font-medium text-center">Navigating Google Workspace</p>
+          <p class="text-xs text-gray-500 text-center mt-1">Course Bank</p>
         </div>
       </div>
-      <div class="min-w-[280px] snap-start cert-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
-        <img src="img/Course Bank - Designing Presentation Slide.jpg" class="cert-img h-44 w-full object-cover cursor-pointer" alt="Designing Presentation Slides" />
+
+      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
+        <img src="img/Great Learning - Programming Basics.png" class="w-full h-48 object-cover" alt="Programming Basics">
         <div class="p-4">
-          <p class="text-center text-sm font-medium text-gray-800">Designing Presentation Slides</p>
-          <p class="text-center text-xs text-gray-500 mt-1">Course Bank</p>
+          <p class="text-sm font-medium text-center">Programming Basics</p>
+          <p class="text-xs text-gray-500 text-center mt-1">Great Learning</p>
         </div>
       </div>
-      <div class="min-w-[280px] snap-start cert-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
-        <img src="img/Course Bank - Microsoft Productivity Tool.jpg" class="cert-img h-44 w-full object-cover cursor-pointer" alt="Microsoft Productivity Tools" />
+
+      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
+        <img src="img/Cisco - Cyber Threat Management.png" class="w-full h-48 object-cover" alt="Cyber Threat Management">
         <div class="p-4">
-          <p class="text-center text-sm font-medium text-gray-800">Microsoft Productivity Tools</p>
-          <p class="text-center text-xs text-gray-500 mt-1">Course Bank</p>
+          <p class="text-sm font-medium text-center">Cyber Threat Management</p>
+          <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
+        </div>
+      </div>
+
+      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
+        <img src="img/Cisco - Introduction to Cybersecurity.png" class="w-full h-48 object-cover" alt="Introduction to Cybersecurity">
+        <div class="p-4">
+          <p class="text-sm font-medium text-center">Introduction to Cybersecurity</p>
+          <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
+        </div>
+      </div>
+
+      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
+        <img src="img/Cisco - Network Defense.png" class="w-full h-48 object-cover" alt="Network Defense">
+        <div class="p-4">
+          <p class="text-sm font-medium text-center">Network Defense</p>
+          <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
+        </div>
+      </div>
+
+      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
+        <img src="img/Course Bank - Designing Presentation Slide.jpg" class="w-full h-48 object-cover" alt="Designing Presentations">
+        <div class="p-4">
+          <p class="text-sm font-medium text-center">Designing Presentation Slides</p>
+          <p class="text-xs text-gray-500 text-center mt-1">Course Bank</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- MODAL VIEWER -->
-<div id="modal" class="fixed inset-0 bg-black/90 flex items-center justify-center hidden z-50 p-6">
-  <button id="modal-close" class="absolute top-6 right-6 text-white text-4xl hover:opacity-70 transition-opacity" aria-label="Close modal">&times;</button>
-  <img id="modal-img" class="max-w-4xl max-h-[90vh] rounded-lg shadow-2xl object-contain" alt="Enlarged view" />
+<!-- MODAL -->
+<div id="modal" class="fixed inset-0 bg-black/95 flex items-center justify-center hidden z-50 p-6">
+  <button id="modal-close" class="absolute top-8 right-8 text-white text-3xl hover:opacity-70 transition-opacity" aria-label="Close">&times;</button>
+  <img id="modal-img" class="max-w-5xl max-h-[90vh] rounded-sm shadow-2xl object-contain" alt="Enlarged view" />
 </div>
 
 <!-- CONTACT -->
-<section id="contact" class="py-32 bg-gradient-to-br from-neutral-50 to-gray-100">
-  <div class="container mx-auto px-6 lg:px-12 max-w-4xl">
-    <div class="section-fade text-center mb-12">
-      <h2 class="text-5xl font-light tracking-tight mb-4">Let's Connect</h2>
-      <div class="w-20 h-1 bg-gray-900 mx-auto mb-6"></div>
-      <p class="text-gray-600 text-lg">Have a project in mind? Let's create something amazing together.</p>
+<section id="contact" class="py-32 gradient-bg">
+  <div class="container mx-auto px-6 lg:px-16 max-w-4xl">
+    <div class="fade-in text-center mb-16">
+      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Get In Touch</span>
+      <h2 class="text-5xl font-light tracking-tight mt-4 mb-6">Let's Work Together</h2>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">Have a project in mind? I'd love to hear about it and explore how we can create something exceptional together.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8 mb-12 section-fade">
-      <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
-        <svg class="w-8 h-8 mx-auto mb-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-        <h3 class="font-medium text-gray-900 mb-2">Email</h3>
-        <a href="mailto:charlenecansing21@gmail.com" class="text-gray-600 hover:text-gray-900 transition-colors break-all">charlenecansing21@gmail.com</a>
-      </div>
+    <div class="grid md:grid-cols-2 gap-6 mb-12 fade-in">
+      <a href="mailto:charlenecansing21@gmail.com" class="card-hover bg-white p-8 rounded-sm text-center group">
+        <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 transition-colors">
+          <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h3 class="font-medium mb-2">Email</h3>
+        <p class="text-sm text-gray-600">charlenecansing21@gmail.com</p>
+      </a>
 
-      <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
-        <svg class="w-8 h-8 mx-auto mb-3 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-        <h3 class="font-medium text-gray-900 mb-2">LinkedIn</h3>
-        <a href="https://linkedin.com/in/charlenecansing" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors">linkedin.com/in/charlenecansing</a>
-      </div>
+      <a href="https://linkedin.com/in/charlenecansing" target="_blank" class="card-hover bg-white p-8 rounded-sm text-center group">
+        <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 transition-colors">
+          <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
+        <h3 class="font-medium mb-2">LinkedIn</h3>
+        <p class="text-sm text-gray-600">linkedin.com/in/charlenecansing</p>
+      </a>
     </div>
 
-    <form action="https://formspree.io/f/xblzdope" method="POST" class="space-y-6 section-fade bg-white p-8 lg:p-12 rounded-lg shadow-xl">
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-        <input type="text" name="name" placeholder="Your Name" required class="w-full border border-gray-300 px-4 py-3 rounded-md transition-all duration-300" />
+    <form action="https://formspree.io/f/xblzdope" method="POST" class="space-y-6 fade-in bg-white p-10 lg:p-12 rounded-sm shadow-lg">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase">Name</label>
+          <input type="text" name="name" placeholder="John Doe" required 
+                 class="w-full border border-gray-200 px-4 py-3 rounded-sm text-sm transition-all duration-300 focus:border-gray-900" />
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase">Email</label>
+          <input type="email" name="email" placeholder="john@example.com" required 
+                 class="w-full border border-gray-200 px-4 py-3 rounded-sm text-sm transition-all duration-300 focus:border-gray-900" />
+        </div>
       </div>
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-        <input type="email" name="email" placeholder="your.email@example.com" required class="w-full border border-gray-300 px-4 py-3 rounded-md transition-all duration-300" />
+        <label class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase">Message</label>
+        <textarea name="message" placeholder="Tell me about your project..." required 
+                  class="w-full border border-gray-200 px-4 py-3 h-40 rounded-sm text-sm transition-all duration-300 resize-none focus:border-gray-900"></textarea>
       </div>
-      <div>
-        <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-        <textarea name="message" placeholder="Tell me about your project..." required class="w-full border border-gray-300 px-4 py-3 h-40 rounded-md transition-all duration-300 resize-none"></textarea>
-      </div>
-      <button type="submit" class="px-8 py-4 bg-gray-900 text-white uppercase tracking-wider w-full hover:bg-gray-800 transition-colors duration-300 rounded-md font-medium">Send Message</button>
+      <button type="submit" class="btn-primary w-full px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all">
+        SEND MESSAGE
+      </button>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-white border-t border-gray-200 py-12">
-  <div class="container mx-auto px-6 text-center">
-    <p class="text-gray-600 text-sm mb-4">© 2025 Charlene Cansing. All rights reserved.</p>
-    <p class="text-gray-400 text-xs">Designed with passion & precision</p>
+<footer class="bg-white border-t border-gray-100 py-12">
+  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-gray-500">© 2025 Charlene Cansing. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="mailto:charlenecansing21@gmail.com" class="text-gray-400 hover:text-gray-900 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/in/charlenecansing" target="_blank" class="text-gray-400 hover:text-gray-900 transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </footer>
 
 <script>
-// Mobile menu toggle
+// Mobile menu
 document.getElementById("mobile-menu-button").onclick = () =>
   document.getElementById("mobile-menu").classList.toggle("hidden");
 
-// Close mobile menu when link is clicked
 document.querySelectorAll('#mobile-menu a').forEach(link => {
   link.onclick = () => document.getElementById("mobile-menu").classList.add("hidden");
 });
 
-// Fade-in animations on scroll
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
+// Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
-}, observerOptions);
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+});
 
-document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Modal functionality
+// Modal
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
 const modalClose = document.getElementById("modal-close");
 
-// Project thumbnails
-document.querySelectorAll('#proj-carousel img').forEach(img => {
-  img.onclick = e => {
-    e.preventDefault();
-    modalImg.src = img.src;
-    modal.classList.remove('hidden');
-  };
-});
-
-// Certification thumbnails
-document.querySelectorAll('.cert-img').forEach(img => {
+document.querySelectorAll('.project-card img, .cert-card img').forEach(img => {
   img.onclick = () => {
     modalImg.src = img.src;
-    modalImg.alt = img.alt;
     modal.classList.remove('hidden');
   };
 });
 
-// Close modal
 modal.onclick = (e) => {
   if (e.target === modal) modal.classList.add('hidden');
 };
 modalClose.onclick = () => modal.classList.add('hidden');
 
-// Carousel controls
-const proj = document.getElementById('proj-carousel');
-document.getElementById('proj-prev').onclick = () => proj.scrollBy({ left: -350, behavior: 'smooth' });
-document.getElementById('proj-next').onclick = () => proj.scrollBy({ left: 350, behavior: 'smooth' });
-
-const cert = document.getElementById('cert-carousel');
-document.getElementById('cert-prev').onclick = () => cert.scrollBy({ left: -300, behavior: 'smooth' });
-document.getElementById('cert-next').onclick = () => cert.scrollBy({ left: 300, behavior: 'smooth' });
-
-// Smooth header transparency on scroll
-let lastScroll = 0;
+// Header shadow on scroll
 const header = document.querySelector('header');
-
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  
-  if (currentScroll > 100) {
-    header.classList.add('shadow-sm');
+  if (window.pageYOffset > 50) {
+    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
   } else {
-    header.classList.remove('shadow-sm');
+    header.style.boxShadow = 'none';
   }
-  
-  lastScroll = currentScroll;
 });
 </script>
 
 </body>
 </html>
-          
