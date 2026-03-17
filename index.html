@@ -5,239 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Charlene Cansing | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, system-ui, sans-serif; }
-        
-        /* Typography */
-        @import url('https://fonts.bunny.net/css?family=inter:300,400,500,600');
-        
-        /* Smooth animations */
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* Custom gradient background */
-        .gradient-bg {
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 50%, #efefef 100%);
-        }
-        
-        /* Navigation styles */
-        .nav-link {
-            position: relative;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            width: 0;
-            height: 1px;
-            background: currentColor;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(-50%);
-        }
-        
-        .nav-link:hover::before {
-            width: 100%;
-        }
-        
-        /* Fade animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Card hover effects */
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid transparent;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-            border-color: #e5e5e5;
-        }
-        
-        /* Project cards */
-        .project-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.6) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 1;
-        }
-        
-        .project-card:hover::before {
-            opacity: 1;
-        }
-        
-        .project-card:hover {
-            transform: scale(1.02);
-        }
-        
-        .project-card img {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .project-card:hover img {
-            transform: scale(1.1);
-        }
-        
-        /* Button styles */
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
-        /* Skill badge */
-        .skill-badge {
-            transition: all 0.3s ease;
-        }
-        
-        .skill-badge:hover {
-            background: #111827;
-            color: white;
-            transform: translateX(4px);
-        }
-        
-        /* Timeline */
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, #111827 0%, #e5e5e5 100%);
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: -4px;
-            top: 0;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #111827;
-            border: 2px solid white;
-            box-shadow: 0 0 0 2px #e5e5e5;
-        }
-        
-        /* Certification cards */
-        .cert-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .cert-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        /* Modal */
-        #modal {
-            backdrop-filter: blur(12px);
-            animation: modalFadeIn 0.3s ease;
-        }
-        
-        @keyframes modalFadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            height: 6px;
-            width: 6px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #f5f5f5;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #d4d4d4;
-            border-radius: 3px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a3a3a3;
-        }
-        
-        /* Form focus */
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #111827;
-            box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.05);
-        }
-        
-        /* Number counter animation */
-        .stat-number {
-            font-variant-numeric: tabular-nums;
-        }
-        
-        /* Decorative elements */
-        .decorative-line {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .decorative-line::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: #111827;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased text-gray-900 bg-white">
 
@@ -693,23 +461,23 @@
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
       
-      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group">
+      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group" data-img="img/Intellect Connect.png" data-video="img/Intellect Connect - Demo Vid.mp4" data-desc="A tutoring and learning support platform connecting learners with expert tutors for live sessions, resources, and progress tracking. This is our capstone group project." data-role="Front-end &amp; Documentation" data-stack="Web: React; Mobile: Flutter; Database: Firebase; Version control: GitHub">
         <div class="relative overflow-hidden h-64">
-          <img src="img/IntellectConnect.jpg" class="w-full h-full object-cover" alt="Intellect Connect">
+          <img src="img/Intellect Connect.png" class="w-full h-full object-cover" alt="Intellect Connect">
         </div>
         <div class="p-6">
           <h3 class="text-lg font-medium mb-2">Intellect Connect</h3>
-          <p class="text-sm text-gray-600">Tutoring and Learning Support Platform</p>
+          <p class="text-sm text-gray-600">Capstone group project · Tutoring and Learning Support Platform</p>
         </div>
       </div>
 
-      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group">
+      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group" data-img="img/GORA.jpg" data-video="img/GORA.mp4" data-desc="GORA is a start-up idea for our Technopreneurship course that connects travelers with AI-powered planning and local recommendations." data-role="Co-founder" data-awards="img/GORA_RegionalPitchingCompetition3rdPlace.jpg::3rd Place - DICT Regional Pitching Competition|img/GORA_2ndPlaceProvincialPitching.jpg::2nd Place - DICT Provincial Pitching Competition">
         <div class="relative overflow-hidden h-64">
-          <img src="img/Gora.png" class="w-full h-full object-cover" alt="Gora">
+          <img src="img/GORA.jpg" class="w-full h-full object-cover" alt="Gora">
         </div>
         <div class="p-6">
           <h3 class="text-lg font-medium mb-2">Gora</h3>
-          <p class="text-sm text-gray-600">Your AI Travel Buddy</p>
+          <p class="text-sm text-gray-600">Co-founder · Start-up idea for Technopreneurship</p>
         </div>
       </div>
 
@@ -756,14 +524,14 @@
     </div>
 
     <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6 fade-in">
-      
       <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
-        <img src="img/Course Bank - Microsoft Productivity Tool.jpg" class="w-full h-48 object-cover" alt="Microsoft Productivity Tools">
+        <img src="img/HTML and CSS.jpg" class="w-full h-48 object-cover" alt="HTML and CSS">
         <div class="p-4">
-          <p class="text-sm font-medium text-center">Microsoft Productivity Tools</p>
-          <p class="text-xs text-gray-500 text-center mt-1">Course Bank</p>
+          <p class="text-sm font-medium text-center">HTML and CSS</p>
+          <p class="text-xs text-gray-500 text-center mt-1">ITS Certification</p>
         </div>
       </div>
+      
 
       <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
         <img src="img/Course Bank - Navigating Google Workspace.jpg" class="w-full h-48 object-cover" alt="Google Workspace">
@@ -813,14 +581,56 @@
         </div>
       </div>
 
+      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer">
+        <img src="img/Course Bank - Microsoft Productivity Tool.jpg" class="w-full h-48 object-cover" alt="Microsoft Productivity Tools">
+        <div class="p-4">
+          <p class="text-sm font-medium text-center">Microsoft Productivity Tools</p>
+          <p class="text-xs text-gray-500 text-center mt-1">Course Bank</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- MODAL -->
-<div id="modal" class="fixed inset-0 bg-black/95 flex items-center justify-center hidden z-50 p-6">
-  <button id="modal-close" class="absolute top-8 right-8 text-white text-3xl hover:opacity-70 transition-opacity" aria-label="Close">&times;</button>
-  <img id="modal-img" class="max-w-5xl max-h-[90vh] rounded-sm shadow-2xl object-contain" alt="Enlarged view" />
+<div id="modal" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50 p-6">
+  <button id="modal-close" class="absolute top-6 right-6 text-white text-3xl hover:opacity-70 transition-opacity" aria-label="Close">&times;</button>
+    <div class="max-w-5xl w-full max-h-[90vh] overflow-auto bg-white rounded-sm p-6 shadow-2xl">
+      <!-- Project Header -->
+      <div class="mb-6">
+        <h3 id="modal-title" class="text-3xl font-medium mb-2"></h3>
+        <p id="modal-role" class="text-sm font-medium text-gray-700 inline-block px-3 py-1 bg-gray-100 rounded-full"></p>
+      </div>
+
+      <!-- About Section -->
+      <div class="modal-section" id="about-section">
+        <h4 class="modal-section-header">About</h4>
+        <p id="modal-desc" class="text-sm text-gray-700 leading-relaxed"></p>
+      </div>
+
+      <!-- Technology Section -->
+      <div class="modal-section" id="tech-section" style="display: none;">
+        <h4 class="modal-section-header">Technology</h4>
+        <p id="modal-stack" class="text-sm text-gray-700 leading-relaxed"></p>
+      </div>
+
+      <!-- Media Section -->
+      <div class="modal-section" id="media-section">
+        <h4 class="modal-section-header">Media</h4>
+        <video id="modal-video" controls class="w-full rounded-sm hidden mb-4">
+          <source id="modal-video-src" src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <img id="modal-img" class="w-full rounded-sm hidden" alt="Project image" />
+      </div>
+
+      <!-- Achievements Section -->
+      <div class="modal-section" id="achievements-section" style="display: none;">
+        <h4 class="modal-section-header">Achievements</h4>
+        <div id="modal-awards" class="flex gap-3 overflow-x-auto"></div>
+      </div>
+    </div>
 </div>
 
 <!-- CONTACT -->
@@ -925,12 +735,104 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Modal
 const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDesc = document.getElementById("modal-desc");
+const modalRole = document.getElementById("modal-role");
+const modalStack = document.getElementById("modal-stack");
 const modalImg = document.getElementById("modal-img");
+const modalVideo = document.getElementById("modal-video");
+const modalVideoSrc = document.getElementById("modal-video-src");
+const modalAwards = document.getElementById("modal-awards");
 const modalClose = document.getElementById("modal-close");
 
-document.querySelectorAll('.project-card img, .cert-card img').forEach(img => {
-  img.onclick = () => {
+// Open project overview modal when a project card is clicked
+document.querySelectorAll('.project-card').forEach(card => {
+  card.onclick = () => {
+    const title = card.querySelector('h3')?.innerText || card.dataset.title || '';
+    const desc = card.dataset.desc || card.querySelector('p')?.innerText || '';
+    const imgSrc = card.dataset.img || card.querySelector('img')?.getAttribute('src') || '';
+    const videoSrc = card.dataset.video || '';
+
+    modalTitle.textContent = title;
+    modalDesc.textContent = desc;
+    
+    // role and tech stack
+    const roleText = card.dataset.role || '';
+    const stackText = card.dataset.stack || '';
+    
+    if (roleText) {
+      modalRole.textContent = '👤 ' + roleText;
+    } else {
+      modalRole.textContent = '';
+    }
+    
+    // Show/hide tech section
+    if (stackText) {
+      modalStack.textContent = stackText;
+      document.getElementById('tech-section').style.display = 'block';
+    } else {
+      document.getElementById('tech-section').style.display = 'none';
+    }
+
+    // main image
+    if (imgSrc) {
+      modalImg.src = imgSrc;
+      modalImg.classList.remove('hidden');
+    } else {
+      modalImg.classList.add('hidden');
+      modalImg.src = '';
+    }
+
+    // video
+    if (videoSrc) {
+      modalVideoSrc.src = videoSrc;
+      modalVideo.load();
+      modalVideo.classList.remove('hidden');
+    } else {
+      modalVideo.pause();
+      modalVideoSrc.src = '';
+      modalVideo.classList.add('hidden');
+    }
+
+    // awards / extra images (src::description pairs, separated by |)
+    modalAwards.innerHTML = '';
+    const awardsList = (card.dataset.awards || '').split('|').filter(Boolean);
+    document.getElementById('achievements-section').style.display = awardsList.length > 0 ? 'block' : 'none';
+    awardsList.forEach(item => {
+      const parts = item.split('::');
+      const src = parts[0]?.trim();
+      const desc = parts[1]?.trim() || '';
+      if (!src) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'award-item';
+
+      const thumb = document.createElement('img');
+      thumb.src = src;
+      thumb.className = 'object-cover rounded-sm border border-gray-200 cursor-pointer';
+
+      const caption = document.createElement('p');
+      caption.className = 'award-caption';
+      caption.textContent = desc;
+
+      wrapper.appendChild(thumb);
+      wrapper.appendChild(caption);
+      modalAwards.appendChild(wrapper);
+    });
+
+    modal.classList.remove('hidden');
+  };
+});
+
+// Keep certificate image clicks showing image-only modal
+document.querySelectorAll('.cert-card img').forEach(img => {
+  img.onclick = (e) => {
+    e.stopPropagation();
+    modalTitle.textContent = '';
+    modalDesc.textContent = '';
     modalImg.src = img.src;
+    modalImg.classList.remove('hidden');
+    modalVideo.pause(); modalVideo.classList.add('hidden');
     modal.classList.remove('hidden');
   };
 });

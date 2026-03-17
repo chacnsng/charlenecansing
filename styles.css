@@ -1,0 +1,285 @@
+@import url('https://fonts.bunny.net/css?family=inter:300,400,500,600');
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+        
+/* Smooth animations */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+        
+/* Custom gradient background */
+.gradient-bg {
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 50%, #efefef 100%);
+}
+        
+/* Navigation styles */
+.nav-link {
+    position: relative;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+        
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+}
+        
+.nav-link:hover::before {
+    width: 100%;
+}
+        
+/* Fade animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+        
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+        
+/* Card hover effects */
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+        
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    border-color: #e5e5e5;
+}
+        
+/* Project cards */
+.project-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+        
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.6) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+        
+.project-card:hover::before {
+    opacity: 1;
+}
+        
+.project-card:hover {
+    transform: scale(1.02);
+}
+        
+.project-card img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+        
+.project-card:hover img {
+    transform: scale(1.1);
+}
+        
+/* Button styles */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+        
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+        
+.btn-primary:hover::before {
+    left: 100%;
+}
+        
+/* Skill badge */
+.skill-badge {
+    transition: all 0.3s ease;
+}
+        
+.skill-badge:hover {
+    background: #111827;
+    color: white;
+    transform: translateX(4px);
+}
+        
+/* Timeline */
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+}
+        
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, #111827 0%, #e5e5e5 100%);
+}
+        
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #111827;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #e5e5e5;
+}
+        
+/* Certification cards */
+.cert-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+        
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+        
+/* Modal */
+#modal {
+    backdrop-filter: blur(12px);
+    animation: modalFadeIn 0.3s ease;
+}
+        
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+        
+/* Scrollbar */
+::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+        
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+        
+::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+    border-radius: 3px;
+}
+        
+::-webkit-scrollbar-thumb:hover {
+    background: #a3a3a3;
+}
+        
+/* Form focus */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.05);
+}
+        
+/* Number counter animation */
+.stat-number {
+    font-variant-numeric: tabular-nums;
+}
+        
+/* Decorative elements */
+.decorative-line {
+    position: relative;
+    display: inline-block;
+}
+        
+.decorative-line::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: #111827;
+}
+
+/* Modal section styling */
+.modal-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.modal-section-header {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+}
+
+/* Modal awards scroller */
+#modal-awards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#modal-awards .award-item {
+    width: 100%;
+}
+
+#modal-awards .award-item img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+#modal-awards .award-caption {
+    font-size: 0.875rem;
+    color: #374151;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+#modal-awards .award-item.selected img {
+    outline: 3px solid rgba(17,24,39,0.12);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
