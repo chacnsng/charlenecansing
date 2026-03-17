@@ -213,20 +213,75 @@ input:focus, textarea:focus {
     font-variant-numeric: tabular-nums;
 }
         
-/* Decorative elements */
-.decorative-line {
+/* Carousel styling */
+.carousel-container {
     position: relative;
-    display: inline-block;
+    overflow: hidden;
 }
-        
-.decorative-line::after {
-    content: '';
+
+.carousel-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-btn {
     position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d4d4d4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
     background: #111827;
+    width: 28px;
+    border-radius: 5px;
 }
 
 /* Modal section styling */
