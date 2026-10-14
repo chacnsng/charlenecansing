@@ -1,896 +1,1445 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Charlene Cansing | Virtual Assistant & Web Developer</title>
-    <meta name="description" content="Portfolio of Charlene Cansing, a Virtual Assistant and Web Developer with five years of experience in SEO, e-commerce, administrative support and web development." />
+    <meta
+      name="description"
+      content="Portfolio of Charlene Cansing, a Virtual Assistant and Web Developer with five years of experience in SEO, e-commerce, administrative support and web development."
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="antialiased text-gray-900 bg-white">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="antialiased text-gray-900 bg-white">
+    <!-- HEADER -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100"
+    >
+      <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div class="flex items-center justify-between py-5">
+          <a
+            href="#home"
+            class="text-xl font-medium tracking-tight hover:opacity-60 transition-opacity"
+          >
+            CHARLENE
+          </a>
+          <nav class="hidden md:flex items-center space-x-8 text-sm">
+            <a href="#home" class="nav-link text-gray-600 hover:text-gray-900"
+              >Home</a
+            >
+            <a href="#about" class="nav-link text-gray-600 hover:text-gray-900"
+              >About</a
+            >
+            <a href="#skills" class="nav-link text-gray-600 hover:text-gray-900"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="nav-link text-gray-600 hover:text-gray-900"
+              >Projects</a
+            >
+            <a
+              href="#certifications"
+              class="nav-link text-gray-600 hover:text-gray-900"
+              >Certifications</a
+            >
+            <a
+              href="#contact"
+              class="btn-primary px-5 py-2 bg-gray-900 text-white text-xs tracking-wider hover:bg-gray-800 transition-all"
+            >
+              CONTACT
+            </a>
+          </nav>
+          <button
+            class="md:hidden"
+            id="mobile-menu-button"
+            aria-label="Toggle menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+        <div id="mobile-menu" class="hidden pb-6 md:hidden">
+          <nav class="flex flex-col space-y-4 text-sm">
+            <a href="#home" class="hover:text-gray-600 transition-colors"
+              >Home</a
+            >
+            <a href="#about" class="hover:text-gray-600 transition-colors"
+              >About</a
+            >
+            <a href="#skills" class="hover:text-gray-600 transition-colors"
+              >Skills</a
+            >
+            <a href="#projects" class="hover:text-gray-600 transition-colors"
+              >Projects</a
+            >
+            <a
+              href="#certifications"
+              class="hover:text-gray-600 transition-colors"
+              >Certifications</a
+            >
+            <a href="#contact" class="hover:text-gray-600 transition-colors"
+              >Contact</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
 
-<!-- HEADER -->
-<header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100">
-  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
-    <div class="flex items-center justify-between py-5">
-      <a href="#home" class="text-xl font-medium tracking-tight hover:opacity-60 transition-opacity">
-        CHARLENE
-      </a>
-      <nav class="hidden md:flex items-center space-x-8 text-sm">
-        <a href="#home" class="nav-link text-gray-600 hover:text-gray-900">Home</a>
-        <a href="#about" class="nav-link text-gray-600 hover:text-gray-900">About</a>
-        <a href="#experience" class="nav-link text-gray-600 hover:text-gray-900">Experience</a>
-        <a href="#skills" class="nav-link text-gray-600 hover:text-gray-900">Skills</a>
-        <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
-        <a href="#certifications" class="nav-link text-gray-600 hover:text-gray-900">Certifications</a>
-        <a href="#contact" class="btn-primary px-5 py-2 bg-gray-900 text-white text-xs tracking-wider hover:bg-gray-800 transition-all">
-          CONTACT
-        </a>
-      </nav>
-      <button class="md:hidden" id="mobile-menu-button" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden pb-6 md:hidden">
-      <nav class="flex flex-col space-y-4 text-sm">
-        <a href="#home" class="hover:text-gray-600 transition-colors">Home</a>
-        <a href="#about" class="hover:text-gray-600 transition-colors">About</a>
-        <a href="#experience" class="hover:text-gray-600 transition-colors">Experience</a>
-        <a href="#skills" class="hover:text-gray-600 transition-colors">Skills</a>
-        <a href="#projects" class="hover:text-gray-600 transition-colors">Projects</a>
-        <a href="#certifications" class="hover:text-gray-600 transition-colors">Certifications</a>
-        <a href="#contact" class="hover:text-gray-600 transition-colors">Contact</a>
-      </nav>
-    </div>
-  </div>
-</header>
+    <!-- HOME HERO -->
+    <section id="home" class="min-h-screen flex items-center gradient-bg pt-20">
+      <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="lg:col-span-7 space-y-8 fade-in">
+            <div class="space-y-6">
+              <div class="inline-block">
+                <span
+                  class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium"
+                  >Virtual Assistant / Web Developer</span
+                >
+              </div>
 
-<!-- HOME HERO -->
-<section id="home" class="min-h-screen flex items-center gradient-bg pt-20">
-  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
-    <div class="grid lg:grid-cols-12 gap-12 items-center">
-      
-      <!-- Left Content -->
-      <div class="lg:col-span-7 space-y-8 fade-in">
-        <div class="space-y-6">
-          <div class="inline-block">
-            <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Virtual Assistant / Web Developer</span>
+              <h1
+                class="text-6xl lg:text-7xl font-light tracking-tight leading-[1.1]"
+              >
+                Where Technology<br />
+                <span class="font-medium">Meets Digital Operations</span>
+              </h1>
+
+              <p
+                class="text-gray-600 text-lg font-light leading-relaxed max-w-xl"
+              >
+                Virtual assistant and web developer with five years of
+                experience in e-commerce, administrative support, social media
+                and SEO, backed by a BSIT degree and hands-on web development
+                skills.
+              </p>
+
+              <div class="flex items-center gap-4 pt-4">
+                <a href="#contact">
+                  <button
+                    class="btn-primary px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all flex items-center gap-3"
+                  >
+                    LET'S WORK TOGETHER
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      ></path>
+                    </svg>
+                  </button>
+                </a>
+                <a href="#projects">
+                  <button
+                    class="px-8 py-4 border border-gray-300 text-xs tracking-widest hover:border-gray-900 transition-all"
+                  >
+                    VIEW WORK
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+              <div>
+                <div class="text-3xl font-light stat-number mb-1">5+</div>
+                <div class="text-xs text-gray-500 tracking-wide uppercase">
+                  Years Experience
+                </div>
+              </div>
+              <div>
+                <div class="text-3xl font-light stat-number mb-1">10+</div>
+                <div class="text-xs text-gray-500 tracking-wide uppercase">
+                  Projects
+                </div>
+              </div>
+              <div>
+                <div class="text-3xl font-light stat-number mb-1">7+</div>
+                <div class="text-xs text-gray-500 tracking-wide uppercase">
+                  Certifications
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <h1 class="text-6xl lg:text-7xl font-light tracking-tight leading-[1.1]">
-            Where Technology<br/>
-            <span class="font-medium">Meets Digital Operations</span>
-          </h1>
-          
-          <p class="text-gray-600 text-lg font-light leading-relaxed max-w-xl">
-            Virtual assistant and web developer with five years of experience in e-commerce, 
-            administrative support, social media and SEO, backed by a BSIT degree and hands-on web development skills.
+
+          <!-- Right Image -->
+          <div class="lg:col-span-5 fade-in flex justify-center lg:justify-end">
+            <div class="relative">
+              <div
+                class="absolute -top-8 -left-8 w-64 h-64 bg-gray-200 rounded-full opacity-20"
+              ></div>
+              <img
+                src="img/portfolioprofile.jpeg"
+                class="relative w-80 h-96 object-cover rounded-sm shadow-2xl"
+                alt="Charlene Cansing"
+              />
+              <div
+                class="absolute -bottom-6 -right-6 bg-white px-8 py-4 shadow-xl rounded-sm"
+              >
+                <p class="text-sm font-medium tracking-wide">
+                  CHARLENE CANSING
+                </p>
+                <p class="text-xs text-gray-500 mt-1">
+                  Virtual Assistant / Web Developer
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-32 bg-white">
+      <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div class="grid lg:grid-cols-12 gap-16 items-start">
+          <!-- Left Stats -->
+          <div class="lg:col-span-5 fade-in space-y-12">
+            <div>
+              <h2
+                class="text-5xl font-light tracking-tight mb-6 decorative-line"
+              >
+                About Me
+              </h2>
+            </div>
+
+            <div class="space-y-8">
+              <div
+                class="flex items-start gap-6 card-hover p-6 rounded-sm bg-gray-50"
+              >
+                <div
+                  class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-2">
+                    Adaptable &amp; Detail-Oriented
+                  </h3>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Quick to learn new systems and workflows, with close
+                    attention to accuracy and confidentiality
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="flex items-start gap-6 card-hover p-6 rounded-sm bg-gray-50"
+              >
+                <div
+                  class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium mb-2">Proactive &amp; Independent</h3>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Comfortable working on my own and solving problems
+                    efficiently without constant direction
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content -->
+          <div class="lg:col-span-7 fade-in space-y-6">
+            <p class="text-xl text-gray-700 font-light leading-relaxed">
+              I'm a Virtual Assistant and Web Developer with five years of
+              professional experience, backed by a Bachelor of Science in
+              Information Technology from the University of Mindanao Digos
+              College.
+            </p>
+
+            <p class="text-gray-600 leading-relaxed">
+              My experience spans e-commerce operations, administrative support,
+              social media management, lead generation and SEO. Most recently,
+              I've written and published SEO-optimized content on WordPress,
+              built backlinks, managed Google My Business posts, reported on
+              performance with Semrush, and designed websites with WordPress
+              Elementor.
+            </p>
+
+            <p class="text-gray-600 leading-relaxed">
+              Alongside client work, I build web and mobile projects, including
+              a capstone tutoring platform and an award-winning start-up pitch.
+              That mix lets me handle both the day-to-day digital operations and
+              the technical side of getting a business online.
+            </p>
+
+            <div class="pt-6 flex flex-wrap gap-4">
+              <a
+                href="https://drive.google.com/file/d/1twgrJ5Z5Fx1QrH01ytoQGMzyqTlpqdj3/view"
+                target="_blank"
+                rel="noopener"
+                class="btn-primary px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all"
+              >
+                VIEW RESUME
+              </a>
+              <a
+                href="https://drive.google.com/uc?export=download&id=1twgrJ5Z5Fx1QrH01ytoQGMzyqTlpqdj3"
+                class="px-8 py-4 border border-gray-300 text-xs tracking-widest hover:border-gray-900 hover:bg-gray-50 transition-all"
+              >
+                DOWNLOAD CV
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-32 bg-white">
+      <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div class="fade-in text-center mb-16">
+          <span
+            class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium"
+            >What I Do</span
+          >
+          <h2 class="text-5xl font-light tracking-tight mt-4">
+            Skills & Services
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
+          <div class="card-hover bg-gray-50 p-8 rounded-sm">
+            <div
+              class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium mb-4">SEO</h3>
+            <div class="space-y-2">
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Keyword Research
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                SEO Blog Writing
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Image SEO
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Backlinks
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Google My Business
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Semrush
+              </div>
+            </div>
+          </div>
+
+          <div class="card-hover bg-gray-50 p-8 rounded-sm">
+            <div
+              class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium mb-4">
+              Web Development &amp; Design
+            </h3>
+            <div class="space-y-2">
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                HTML/CSS
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                JavaScript
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                WordPress
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Elementor
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Responsive Design
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                UI/UX
+              </div>
+            </div>
+          </div>
+
+          <div class="card-hover bg-gray-50 p-8 rounded-sm">
+            <div
+              class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium mb-4">E-Commerce Management</h3>
+            <div class="space-y-2">
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Walmart Dropshipping
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Product Sourcing
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Bulk Listings
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Order Processing
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Inventory &amp; Pricing
+              </div>
+            </div>
+          </div>
+
+          <div class="card-hover bg-gray-50 p-8 rounded-sm">
+            <div
+              class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium mb-4">Administrative Assistance</h3>
+            <div class="space-y-2">
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Data Entry
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Email Support
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Interview Scheduling
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Airtable
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Project Management
+              </div>
+            </div>
+          </div>
+
+          <div class="card-hover bg-gray-50 p-8 rounded-sm">
+            <div
+              class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium mb-4">
+              Social Media &amp; Outreach
+            </h3>
+            <div class="space-y-2">
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Social Media Management
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                LinkedIn
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Lead Generation
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Email Marketing
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Content Distribution
+              </div>
+            </div>
+          </div>
+
+          <div class="card-hover bg-gray-50 p-8 rounded-sm">
+            <div
+              class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium mb-4">Photo &amp; Video Editing</h3>
+            <div class="space-y-2">
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Canva
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Photo Editing
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                Video Editing
+              </div>
+              <div
+                class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2"
+              >
+                CV &amp; Document Design
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-32 gradient-bg">
+      <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div class="fade-in text-center mb-16">
+          <span
+            class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium"
+            >Portfolio</span
+          >
+          <h2 class="text-5xl font-light tracking-tight mt-4">
+            Featured Projects
+          </h2>
+        </div>
+
+        <div class="carousel-container fade-in">
+          <button
+            class="carousel-btn prev"
+            onclick="carouselSlide(this, -1)"
+            aria-label="Previous projects"
+          >
+            ❮
+          </button>
+          <div class="carousel-wrapper" id="projects-carousel">
+            <div class="flex gap-6" style="min-width: 100%">
+              <div
+                class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80"
+                data-img="img/Intellect Connect.png"
+                data-video="img/Intellect Connect - Demo Vid.mp4"
+                data-desc="A tutoring and learning support platform connecting learners with expert tutors for live sessions, resources, and progress tracking. This is our capstone group project."
+                data-role="Front-end &amp; Documentation"
+                data-stack="Web: React; Mobile: Flutter; Database: Firebase; Version control: GitHub"
+              >
+                <div class="relative overflow-hidden h-64">
+                  <img
+                    src="img/Intellect Connect.png"
+                    class="w-full h-full object-cover"
+                    alt="Intellect Connect"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-lg font-medium mb-2">Intellect Connect</h3>
+                  <p class="text-sm text-gray-600">
+                    Capstone group project · Tutoring and Learning Support
+                    Platform
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80"
+                data-img="img/GORA.jpg"
+                data-video="img/GORA.mp4"
+                data-desc="GORA is a start-up idea for our Technopreneurship course that connects travelers with AI-powered planning and local recommendations."
+                data-role="Co-founder"
+                data-awards="img/GORA_RegionalPitchingCompetition3rdPlace.jpg::3rd Place - DICT Regional Pitching Competition|img/GORA_2ndPlaceProvincialPitching.jpg::2nd Place - DICT Provincial Pitching Competition"
+              >
+                <div class="relative overflow-hidden h-64">
+                  <img
+                    src="img/GORA.jpg"
+                    class="w-full h-full object-cover"
+                    alt="Gora"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-lg font-medium mb-2">Gora</h3>
+                  <p class="text-sm text-gray-600">
+                    Co-founder · Start-up idea for Technopreneurship
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80"
+              >
+                <div class="relative overflow-hidden h-64">
+                  <img
+                    src="img/Picsure.png"
+                    class="w-full h-full object-cover"
+                    alt="Picsure"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-lg font-medium mb-2">Picsure Photo Booth</h3>
+                  <p class="text-sm text-gray-600">
+                    AI-Powered ID Generation System
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80"
+              >
+                <div class="relative overflow-hidden h-64">
+                  <img
+                    src="img/Picture1.jpg"
+                    class="w-full h-full object-cover"
+                    alt="Higanteng Laagan"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-lg font-medium mb-2">Higanteng Laagan</h3>
+                  <p class="text-sm text-gray-600">Tour Booking Platform</p>
+                </div>
+              </div>
+
+              <div
+                class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80"
+              >
+                <div class="relative overflow-hidden h-64">
+                  <img
+                    src="img/JobSpotter.png"
+                    class="w-full h-full object-cover"
+                    alt="Job Spotter"
+                  />
+                </div>
+                <div class="p-6">
+                  <h3 class="text-lg font-medium mb-2">Job Spotter</h3>
+                  <p class="text-sm text-gray-600">
+                    Mobile Job Finder Application
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-btn next"
+            onclick="carouselSlide(this, 1)"
+            aria-label="Next projects"
+          >
+            ❯
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="py-32 bg-white">
+      <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div class="fade-in text-center mb-16">
+          <span
+            class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium"
+            >Credentials</span
+          >
+          <h2 class="text-5xl font-light tracking-tight mt-4">
+            Certifications
+          </h2>
+        </div>
+
+        <div class="carousel-container fade-in">
+          <button
+            class="carousel-btn prev"
+            onclick="carouselSlide(this, -1)"
+            aria-label="Previous certifications"
+          >
+            ❮
+          </button>
+          <div class="carousel-wrapper" id="certs-carousel">
+            <div class="flex gap-6" style="min-width: 100%">
+              <div
+                class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72"
+              >
+                <img
+                  src="img/HTML and CSS.jpg"
+                  class="w-full h-48 object-cover"
+                  alt="HTML and CSS"
+                />
+                <div class="p-4">
+                  <p class="text-sm font-medium text-center">HTML and CSS</p>
+                  <p class="text-xs text-gray-500 text-center mt-1">
+                    ITS Certification
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72"
+              >
+                <img
+                  src="img/Course Bank - Navigating Google Workspace.jpg"
+                  class="w-full h-48 object-cover"
+                  alt="Google Workspace"
+                />
+                <div class="p-4">
+                  <p class="text-sm font-medium text-center">
+                    Navigating Google Workspace
+                  </p>
+                  <p class="text-xs text-gray-500 text-center mt-1">
+                    Course Bank
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72"
+              >
+                <img
+                  src="img/Great Learning - Programming Basics.png"
+                  class="w-full h-48 object-cover"
+                  alt="Programming Basics"
+                />
+                <div class="p-4">
+                  <p class="text-sm font-medium text-center">
+                    Programming Basics
+                  </p>
+                  <p class="text-xs text-gray-500 text-center mt-1">
+                    Great Learning
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72"
+              >
+                <img
+                  src="img/Cisco - Cyber Threat Management.png"
+                  class="w-full h-48 object-cover"
+                  alt="Cyber Threat Management"
+                />
+                <div class="p-4">
+                  <p class="text-sm font-medium text-center">
+                    Cyber Threat Management
+                  </p>
+                  <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
+                </div>
+              </div>
+
+              <div
+                class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72"
+              >
+                <img
+                  src="img/Cisco - Introduction to Cybersecurity.png"
+                  class="w-full h-48 object-cover"
+                  alt="Introduction to Cybersecurity"
+                />
+                <div class="p-4">
+                  <p class="text-sm font-medium text-center">
+                    Introduction to Cybersecurity
+                  </p>
+                  <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
+                </div>
+              </div>
+
+              <div
+                class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72"
+              >
+                <img
+                  src="img/Cisco - Network Defense.png"
+                  class="w-full h-48 object-cover"
+                  alt="Network Defense"
+                />
+                <div class="p-4">
+                  <p class="text-sm font-medium text-center">Network Defense</p>
+                  <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
+                </div>
+              </div>
+
+              <div
+                class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72"
+              >
+                <img
+                  src="img/Course Bank - Designing Presentation Slide.jpg"
+                  class="w-full h-48 object-cover"
+                  alt="Designing Presentations"
+                />
+                <div class="p-4">
+                  <p class="text-sm font-medium text-center">
+                    Designing Presentation Slides
+                  </p>
+                  <p class="text-xs text-gray-500 text-center mt-1">
+                    Course Bank
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72"
+              >
+                <img
+                  src="img/Course Bank - Microsoft Productivity Tool.jpg"
+                  class="w-full h-48 object-cover"
+                  alt="Microsoft Productivity Tools"
+                />
+                <div class="p-4">
+                  <p class="text-sm font-medium text-center">
+                    Microsoft Productivity Tools
+                  </p>
+                  <p class="text-xs text-gray-500 text-center mt-1">
+                    Course Bank
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-btn next"
+            onclick="carouselSlide(this, 1)"
+            aria-label="Next certifications"
+          >
+            ❯
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div
+      id="modal"
+      class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50 p-6"
+    >
+      <button
+        id="modal-close"
+        class="absolute top-6 right-6 text-white text-3xl hover:opacity-70 transition-opacity"
+        aria-label="Close"
+      >
+        &times;
+      </button>
+      <div
+        class="max-w-5xl w-full max-h-[90vh] overflow-auto bg-white rounded-sm p-6 shadow-2xl"
+      >
+        <!-- Project Header -->
+        <div class="mb-6">
+          <h3 id="modal-title" class="text-3xl font-medium mb-2"></h3>
+          <p
+            id="modal-role"
+            class="text-sm font-medium text-gray-700 inline-block px-3 py-1 bg-gray-100 rounded-full"
+          ></p>
+        </div>
+
+        <!-- About Section -->
+        <div class="modal-section" id="about-section">
+          <h4 class="modal-section-header">About</h4>
+          <p id="modal-desc" class="text-sm text-gray-700 leading-relaxed"></p>
+        </div>
+
+        <!-- Technology Section -->
+        <div class="modal-section" id="tech-section" style="display: none">
+          <h4 class="modal-section-header">Technology</h4>
+          <p id="modal-stack" class="text-sm text-gray-700 leading-relaxed"></p>
+        </div>
+
+        <!-- Media Section -->
+        <div class="modal-section" id="media-section">
+          <h4 class="modal-section-header">Media</h4>
+          <video
+            id="modal-video"
+            controls
+            class="w-full rounded-sm hidden mb-4"
+          >
+            <source id="modal-video-src" src="" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <img
+            id="modal-img"
+            class="w-full rounded-sm hidden"
+            alt="Project image"
+          />
+        </div>
+
+        <!-- Achievements Section -->
+        <div
+          class="modal-section"
+          id="achievements-section"
+          style="display: none"
+        >
+          <h4 class="modal-section-header">Achievements</h4>
+          <div id="modal-awards" class="flex gap-3 overflow-x-auto"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-32 gradient-bg">
+      <div class="container mx-auto px-6 lg:px-16 max-w-5xl">
+        <div class="fade-in text-center mb-16">
+          <span
+            class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium"
+            >Get In Touch</span
+          >
+          <h2 class="text-5xl font-light tracking-tight mt-4 mb-6">
+            Let's Work Together
+          </h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+            Have a project in mind? I'd love to hear about it and explore how we
+            can create something exceptional together.
           </p>
-          
-          <div class="flex items-center gap-4 pt-4">
-            <a href="#contact">
-              <button class="btn-primary px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all flex items-center gap-3">
-                LET'S WORK TOGETHER
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </button>
-            </a>
-            <a href="#projects">
-              <button class="px-8 py-4 border border-gray-300 text-xs tracking-widest hover:border-gray-900 transition-all">
-                VIEW WORK
-              </button>
-            </a>
-          </div>
         </div>
-        
-        <!-- Stats -->
-        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
-          <div>
-            <div class="text-3xl font-light stat-number mb-1">5+</div>
-            <div class="text-xs text-gray-500 tracking-wide uppercase">Years Experience</div>
-          </div>
-          <div>
-            <div class="text-3xl font-light stat-number mb-1">10+</div>
-            <div class="text-xs text-gray-500 tracking-wide uppercase">Projects</div>
-          </div>
-          <div>
-            <div class="text-3xl font-light stat-number mb-1">7+</div>
-            <div class="text-xs text-gray-500 tracking-wide uppercase">Certifications</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Right Image -->
-      <div class="lg:col-span-5 fade-in flex justify-center lg:justify-end">
-        <div class="relative">
-          <div class="absolute -top-8 -left-8 w-64 h-64 bg-gray-200 rounded-full opacity-20"></div>
-          <img src="img/portfolioprofile.jpeg" 
-               class="relative w-80 h-96 object-cover rounded-sm shadow-2xl" 
-               alt="Charlene Cansing" />
-          <div class="absolute -bottom-6 -right-6 bg-white px-8 py-4 shadow-xl rounded-sm">
-            <p class="text-sm font-medium tracking-wide">CHARLENE CANSING</p>
-            <p class="text-xs text-gray-500 mt-1">Virtual Assistant / Web Developer</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-32 bg-white">
-  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
-    <div class="grid lg:grid-cols-12 gap-16 items-start">
-
-      <!-- Left Stats -->
-      <div class="lg:col-span-5 fade-in space-y-12">
-        <div>
-          <h2 class="text-5xl font-light tracking-tight mb-6 decorative-line">About Me</h2>
-        </div>
-        
-        <div class="space-y-8">
-          <div class="flex items-start gap-6 card-hover p-6 rounded-sm bg-gray-50">
-            <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+        <div class="grid md:grid-cols-3 gap-6 mb-12 fade-in">
+          <a
+            href="mailto:charlene.cansing@gmail.com"
+            class="card-hover bg-white p-8 rounded-sm text-center group"
+          >
+            <div
+              class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 transition-colors"
+            >
+              <svg
+                class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
               </svg>
             </div>
-            <div>
-              <h3 class="font-medium mb-2">Adaptable &amp; Detail-Oriented</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">Quick to learn new systems and workflows, with close attention to accuracy and confidentiality</p>
-            </div>
-          </div>
-          
-          <div class="flex items-start gap-6 card-hover p-6 rounded-sm bg-gray-50">
-            <div class="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            <h3 class="font-medium mb-2">Email</h3>
+            <p class="text-sm text-gray-600 break-all">
+              charlene.cansing@gmail.com
+            </p>
+          </a>
+
+          <a
+            href="https://linkedin.com/in/charlenecansing"
+            target="_blank"
+            rel="noopener"
+            class="card-hover bg-white p-8 rounded-sm text-center group"
+          >
+            <div
+              class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 transition-colors"
+            >
+              <svg
+                class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
               </svg>
             </div>
-            <div>
-              <h3 class="font-medium mb-2">Proactive &amp; Independent</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">Comfortable working on my own and solving problems efficiently without constant direction</p>
+            <h3 class="font-medium mb-2">LinkedIn</h3>
+            <p class="text-sm text-gray-600 break-all">
+              linkedin.com/in/charlenecansing
+            </p>
+          </a>
+
+          <a
+            href="https://github.com/chacnsng"
+            target="_blank"
+            rel="noopener"
+            class="card-hover bg-white p-8 rounded-sm text-center group"
+          >
+            <div
+              class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 transition-colors"
+            >
+              <svg
+                class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
             </div>
+            <h3 class="font-medium mb-2">GitHub</h3>
+            <p class="text-sm text-gray-600 break-all">github.com/chacnsng</p>
+          </a>
+        </div>
+
+        <form
+          action="https://formspree.io/f/xblzdope"
+          method="POST"
+          class="space-y-6 fade-in bg-white p-10 lg:p-12 rounded-sm shadow-lg max-w-4xl mx-auto"
+        >
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label
+                for="name"
+                class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase"
+                >Name</label
+              >
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="John Doe"
+                required
+                class="w-full border border-gray-200 px-4 py-3 rounded-sm text-sm transition-all duration-300 focus:border-gray-900"
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase"
+                >Email</label
+              >
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+                class="w-full border border-gray-200 px-4 py-3 rounded-sm text-sm transition-all duration-300 focus:border-gray-900"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              for="message"
+              class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell me about your project..."
+              required
+              class="w-full border border-gray-200 px-4 py-3 h-40 rounded-sm text-sm transition-all duration-300 resize-none focus:border-gray-900"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn-primary w-full px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all"
+          >
+            SEND MESSAGE
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-gray-100 py-12">
+      <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-sm text-gray-500">
+            © 2026 Charlene Cansing. All rights reserved.
+          </p>
+          <div class="flex gap-6">
+            <a
+              href="mailto:charlene.cansing@gmail.com"
+              class="text-gray-400 hover:text-gray-900 transition-colors"
+              aria-label="Email"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/charlenecansing"
+              target="_blank"
+              rel="noopener"
+              class="text-gray-400 hover:text-gray-900 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://github.com/chacnsng"
+              target="_blank"
+              rel="noopener"
+              class="text-gray-400 hover:text-gray-900 transition-colors"
+              aria-label="GitHub"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
-
-      <!-- Right Content -->
-      <div class="lg:col-span-7 fade-in space-y-6">
-        <p class="text-xl text-gray-700 font-light leading-relaxed">
-          I'm a Virtual Assistant and Web Developer with five years of professional experience, backed by a Bachelor of Science in Information Technology from the University of Mindanao Digos College.
-        </p>
-        
-        <p class="text-gray-600 leading-relaxed">
-          My experience spans e-commerce operations, administrative support, social media management, lead generation and SEO. Most recently, I've written and published SEO-optimized content on WordPress, built backlinks, managed Google My Business posts, reported on performance with Semrush, and designed websites with WordPress Elementor.
-        </p>
-        
-        <p class="text-gray-600 leading-relaxed">
-          Alongside client work, I build web and mobile projects, including a capstone tutoring platform and an award-winning start-up pitch. That mix lets me handle both the day-to-day digital operations and the technical side of getting a business online.
-        </p>
-        
-        <div class="pt-6 flex flex-wrap gap-4">
-          <a href="https://drive.google.com/file/d/1twgrJ5Z5Fx1QrH01ytoQGMzyqTlpqdj3/view" target="_blank" rel="noopener"
-             class="btn-primary px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all">
-            VIEW RESUME
-          </a>
-          <a href="https://drive.google.com/uc?export=download&id=1twgrJ5Z5Fx1QrH01ytoQGMzyqTlpqdj3" 
-             class="px-8 py-4 border border-gray-300 text-xs tracking-widest hover:border-gray-900 hover:bg-gray-50 transition-all">
-            DOWNLOAD CV
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" class="py-32 gradient-bg">
-  <div class="container mx-auto px-6 lg:px-16 max-w-5xl">
-    <div class="fade-in text-center mb-16">
-      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Career</span>
-      <h2 class="text-5xl font-light tracking-tight mt-4">Work Experience</h2>
-    </div>
-
-    <div class="fade-in space-y-10">
-
-      <div class="timeline-item">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-          <h3 class="text-lg font-medium">SEO &amp; Digital Marketing Assistant <span class="text-sm text-gray-500 font-normal">(Freelance)</span></h3>
-          <span class="text-xs text-gray-500 tracking-wide">Jul 2025 – Aug 2026</span>
-        </div>
-        <p class="text-sm text-gray-700 mb-3">QuickDesk Virtual Solutions</p>
-        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600 leading-relaxed">
-          <li>Wrote and published SEO-optimized blog content using WordPress CMS.</li>
-          <li>Optimized images with alt text, titles, captions and descriptions for better search visibility.</li>
-          <li>Built quality backlinks to improve domain authority and search rankings.</li>
-          <li>Created and updated Google My Business posts to strengthen local SEO.</li>
-          <li>Managed social media posting and generated monthly SEO reports using Semrush.</li>
-          <li>Developed and designed websites using WordPress Elementor.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-          <h3 class="text-lg font-medium">Recruitment &amp; Email Support Assistant <span class="text-sm text-gray-500 font-normal">(Full-Time)</span></h3>
-          <span class="text-xs text-gray-500 tracking-wide">Jul 2025 – Feb 2026</span>
-        </div>
-        <p class="text-sm text-gray-700 mb-3">Softwork GmbH</p>
-        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600 leading-relaxed">
-          <li>Sent and managed email communications through Gmail with prospective clients and leads.</li>
-          <li>Monitored responses and kept clients updated on applications, inquiries and next steps.</li>
-          <li>Coordinated and scheduled interviews between developers and prospective clients.</li>
-          <li>Maintained organized records of applications, correspondence and interview schedules.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-          <h3 class="text-lg font-medium">General Virtual Assistant <span class="text-sm text-gray-500 font-normal">(Part-Time)</span></h3>
-          <span class="text-xs text-gray-500 tracking-wide">Dec 2022 – Aug 2025</span>
-        </div>
-        <p class="text-sm text-gray-700 mb-3">Innosky Company</p>
-        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600 leading-relaxed">
-          <li>Managed LinkedIn accounts of developers to boost professional networking.</li>
-          <li>Sourced and qualified leads, scheduling meetings through Airtable.</li>
-          <li>Created customized CVs and professional documents using Canva.</li>
-          <li>Supported administrative and client-facing tasks to improve business efficiency.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-          <h3 class="text-lg font-medium">Account Manager <span class="text-sm text-gray-500 font-normal">(Part-Time)</span></h3>
-          <span class="text-xs text-gray-500 tracking-wide">Aug 2021 – Dec 2022</span>
-        </div>
-        <p class="text-sm text-gray-700 mb-3">Bottom Line Concepts, LLC</p>
-        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600 leading-relaxed">
-          <li>Assisted with client account management and communication for a cost-savings consultancy.</li>
-          <li>Supported administrative and back-end operations for smooth client engagement.</li>
-          <li>Coordinated with team members to keep records and follow-ups accurate.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-          <h3 class="text-lg font-medium">Virtual Assistant <span class="text-sm text-gray-500 font-normal">(Full-Time)</span></h3>
-          <span class="text-xs text-gray-500 tracking-wide">Jan – Oct 2022</span>
-        </div>
-        <p class="text-sm text-gray-700 mb-3">QuickDesk Virtual Solutions</p>
-        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600 leading-relaxed">
-          <li>Performed SEO tasks including keyword research and content optimization.</li>
-          <li>Handled data entry projects with accuracy and confidentiality.</li>
-          <li>Generated and verified leads for business outreach and sales campaigns.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
-          <h3 class="text-lg font-medium">Walmart Dropshipping Virtual Assistant <span class="text-sm text-gray-500 font-normal">(Full-Time)</span></h3>
-          <span class="text-xs text-gray-500 tracking-wide">Aug 2020 – Dec 2021</span>
-        </div>
-        <p class="text-sm text-gray-700 mb-3">Drop it like a Box LLC · Waller Distributing LLC · GoGoGazelle LLC</p>
-        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600 leading-relaxed">
-          <li>Researched and sourced profitable products for Walmart Marketplace.</li>
-          <li>Created and uploaded bulk listings using Walmart Seller Center and tools like OA Genius.</li>
-          <li>Updated prices and inventory to keep listings accurate.</li>
-          <li>Placed daily orders with suppliers (Amazon, Home Depot) and tracked shipment status.</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Education -->
-    <div class="fade-in mt-20">
-      <h3 class="text-2xl font-light tracking-tight mb-6 text-center">Education</h3>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="card-hover bg-white p-8 rounded-sm">
-          <p class="text-xs text-gray-500 tracking-wide mb-2">2026</p>
-          <h4 class="font-medium mb-1">Bachelor of Science in Information Technology</h4>
-          <p class="text-sm text-gray-600">University of Mindanao Digos College</p>
-        </div>
-        <div class="card-hover bg-white p-8 rounded-sm">
-          <p class="text-xs text-gray-500 tracking-wide mb-2">2022</p>
-          <h4 class="font-medium mb-1">176 General Virtual Assistant Training Course</h4>
-          <p class="text-sm text-gray-600">QuickDesk Virtual Solutions</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="py-32 bg-white">
-  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
-    <div class="fade-in text-center mb-16">
-      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">What I Do</span>
-      <h2 class="text-5xl font-light tracking-tight mt-4">Skills & Services</h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in">
-      
-      <div class="card-hover bg-gray-50 p-8 rounded-sm">
-        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-medium mb-4">SEO</h3>
-        <div class="space-y-2">
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Keyword Research</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">SEO Blog Writing</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Image SEO</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Backlinks</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Google My Business</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Semrush</div>
-        </div>
-      </div>
-
-      <div class="card-hover bg-gray-50 p-8 rounded-sm">
-        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-medium mb-4">Web Development &amp; Design</h3>
-        <div class="space-y-2">
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">HTML/CSS</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">JavaScript</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">WordPress</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Elementor</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Responsive Design</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">UI/UX</div>
-        </div>
-      </div>
-
-      <div class="card-hover bg-gray-50 p-8 rounded-sm">
-        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-medium mb-4">E-Commerce Management</h3>
-        <div class="space-y-2">
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Walmart Dropshipping</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Product Sourcing</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Bulk Listings</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Order Processing</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Inventory &amp; Pricing</div>
-        </div>
-      </div>
-
-      <div class="card-hover bg-gray-50 p-8 rounded-sm">
-        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-medium mb-4">Administrative Assistance</h3>
-        <div class="space-y-2">
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Data Entry</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Email Support</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Interview Scheduling</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Airtable</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Project Management</div>
-        </div>
-      </div>
-
-      <div class="card-hover bg-gray-50 p-8 rounded-sm">
-        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-medium mb-4">Social Media &amp; Outreach</h3>
-        <div class="space-y-2">
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Social Media Management</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">LinkedIn</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Lead Generation</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Email Marketing</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Content Distribution</div>
-        </div>
-      </div>
-
-      <div class="card-hover bg-gray-50 p-8 rounded-sm">
-        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-medium mb-4">Photo &amp; Video Editing</h3>
-        <div class="space-y-2">
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Canva</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Photo Editing</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">Video Editing</div>
-          <div class="skill-badge inline-block px-3 py-1 bg-white rounded-full text-xs mr-2 mb-2">CV &amp; Document Design</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-32 gradient-bg">
-  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
-    <div class="fade-in text-center mb-16">
-      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Portfolio</span>
-      <h2 class="text-5xl font-light tracking-tight mt-4">Featured Projects</h2>
-    </div>
-
-    <div class="carousel-container fade-in">
-      <button class="carousel-btn prev" onclick="carouselSlide(this, -1)" aria-label="Previous projects">❮</button>
-      <div class="carousel-wrapper" id="projects-carousel">
-        <div class="flex gap-6" style="min-width: 100%;">
-      
-      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80" data-img="img/Intellect Connect.png" data-video="img/Intellect Connect - Demo Vid.mp4" data-desc="A tutoring and learning support platform connecting learners with expert tutors for live sessions, resources, and progress tracking. This is our capstone group project." data-role="Front-end &amp; Documentation" data-stack="Web: React; Mobile: Flutter; Database: Firebase; Version control: GitHub">
-        <div class="relative overflow-hidden h-64">
-          <img src="img/Intellect Connect.png" class="w-full h-full object-cover" alt="Intellect Connect">
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-medium mb-2">Intellect Connect</h3>
-          <p class="text-sm text-gray-600">Capstone group project · Tutoring and Learning Support Platform</p>
-        </div>
-      </div>
-
-      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80" data-img="img/GORA.jpg" data-video="img/GORA.mp4" data-desc="GORA is a start-up idea for our Technopreneurship course that connects travelers with AI-powered planning and local recommendations." data-role="Co-founder" data-awards="img/GORA_RegionalPitchingCompetition3rdPlace.jpg::3rd Place - DICT Regional Pitching Competition|img/GORA_2ndPlaceProvincialPitching.jpg::2nd Place - DICT Provincial Pitching Competition">
-        <div class="relative overflow-hidden h-64">
-          <img src="img/GORA.jpg" class="w-full h-full object-cover" alt="Gora">
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-medium mb-2">Gora</h3>
-          <p class="text-sm text-gray-600">Co-founder · Start-up idea for Technopreneurship</p>
-        </div>
-      </div>
-
-      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80">
-        <div class="relative overflow-hidden h-64">
-          <img src="img/Picsure.png" class="w-full h-full object-cover" alt="Picsure">
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-medium mb-2">Picsure Photo Booth</h3>
-          <p class="text-sm text-gray-600">AI-Powered ID Generation System</p>
-        </div>
-      </div>
-
-      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80">
-        <div class="relative overflow-hidden h-64">
-          <img src="img/Picture1.jpg" class="w-full h-full object-cover" alt="Higanteng Laagan">
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-medium mb-2">Higanteng Laagan</h3>
-          <p class="text-sm text-gray-600">Tour Booking Platform</p>
-        </div>
-      </div>
-
-      <div class="project-card bg-white rounded-sm overflow-hidden cursor-pointer group flex-shrink-0 w-80">
-        <div class="relative overflow-hidden h-64">
-          <img src="img/JobSpotter.png" class="w-full h-full object-cover" alt="Job Spotter">
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-medium mb-2">Job Spotter</h3>
-          <p class="text-sm text-gray-600">Mobile Job Finder Application</p>
-        </div>
-      </div>
-
-        </div>
-      </div>
-      <button class="carousel-btn next" onclick="carouselSlide(this, 1)" aria-label="Next projects">❯</button>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications" class="py-32 bg-white">
-  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
-    <div class="fade-in text-center mb-16">
-      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Credentials</span>
-      <h2 class="text-5xl font-light tracking-tight mt-4">Certifications</h2>
-    </div>
-
-    <div class="carousel-container fade-in">
-      <button class="carousel-btn prev" onclick="carouselSlide(this, -1)" aria-label="Previous certifications">❮</button>
-      <div class="carousel-wrapper" id="certs-carousel">
-        <div class="flex gap-6" style="min-width: 100%;">
-      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72">
-        <img src="img/HTML and CSS.jpg" class="w-full h-48 object-cover" alt="HTML and CSS">
-        <div class="p-4">
-          <p class="text-sm font-medium text-center">HTML and CSS</p>
-          <p class="text-xs text-gray-500 text-center mt-1">ITS Certification</p>
-        </div>
-      </div>
-      
-
-      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72">
-        <img src="img/Course Bank - Navigating Google Workspace.jpg" class="w-full h-48 object-cover" alt="Google Workspace">
-        <div class="p-4">
-          <p class="text-sm font-medium text-center">Navigating Google Workspace</p>
-          <p class="text-xs text-gray-500 text-center mt-1">Course Bank</p>
-        </div>
-      </div>
-
-      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72">
-        <img src="img/Great Learning - Programming Basics.png" class="w-full h-48 object-cover" alt="Programming Basics">
-        <div class="p-4">
-          <p class="text-sm font-medium text-center">Programming Basics</p>
-          <p class="text-xs text-gray-500 text-center mt-1">Great Learning</p>
-        </div>
-      </div>
-
-      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72">
-        <img src="img/Cisco - Cyber Threat Management.png" class="w-full h-48 object-cover" alt="Cyber Threat Management">
-        <div class="p-4">
-          <p class="text-sm font-medium text-center">Cyber Threat Management</p>
-          <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
-        </div>
-      </div>
-
-      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72">
-        <img src="img/Cisco - Introduction to Cybersecurity.png" class="w-full h-48 object-cover" alt="Introduction to Cybersecurity">
-        <div class="p-4">
-          <p class="text-sm font-medium text-center">Introduction to Cybersecurity</p>
-          <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
-        </div>
-      </div>
-
-      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72">
-        <img src="img/Cisco - Network Defense.png" class="w-full h-48 object-cover" alt="Network Defense">
-        <div class="p-4">
-          <p class="text-sm font-medium text-center">Network Defense</p>
-          <p class="text-xs text-gray-500 text-center mt-1">Cisco</p>
-        </div>
-      </div>
-
-      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72">
-        <img src="img/Course Bank - Designing Presentation Slide.jpg" class="w-full h-48 object-cover" alt="Designing Presentations">
-        <div class="p-4">
-          <p class="text-sm font-medium text-center">Designing Presentation Slides</p>
-          <p class="text-xs text-gray-500 text-center mt-1">Course Bank</p>
-        </div>
-      </div>
-
-      <div class="cert-card bg-gray-50 rounded-sm overflow-hidden cursor-pointer flex-shrink-0 w-72">
-        <img src="img/Course Bank - Microsoft Productivity Tool.jpg" class="w-full h-48 object-cover" alt="Microsoft Productivity Tools">
-        <div class="p-4">
-          <p class="text-sm font-medium text-center">Microsoft Productivity Tools</p>
-          <p class="text-xs text-gray-500 text-center mt-1">Course Bank</p>
-        </div>
-      </div>
-        </div>
-      </div>
-      <button class="carousel-btn next" onclick="carouselSlide(this, 1)" aria-label="Next certifications">❯</button>
-    </div>
-  </div>
-</section>
-
-<!-- MODAL -->
-<div id="modal" class="fixed inset-0 bg-black/80 flex items-center justify-center hidden z-50 p-6">
-  <button id="modal-close" class="absolute top-6 right-6 text-white text-3xl hover:opacity-70 transition-opacity" aria-label="Close">&times;</button>
-    <div class="max-w-5xl w-full max-h-[90vh] overflow-auto bg-white rounded-sm p-6 shadow-2xl">
-      <!-- Project Header -->
-      <div class="mb-6">
-        <h3 id="modal-title" class="text-3xl font-medium mb-2"></h3>
-        <p id="modal-role" class="text-sm font-medium text-gray-700 inline-block px-3 py-1 bg-gray-100 rounded-full"></p>
-      </div>
-
-      <!-- About Section -->
-      <div class="modal-section" id="about-section">
-        <h4 class="modal-section-header">About</h4>
-        <p id="modal-desc" class="text-sm text-gray-700 leading-relaxed"></p>
-      </div>
-
-      <!-- Technology Section -->
-      <div class="modal-section" id="tech-section" style="display: none;">
-        <h4 class="modal-section-header">Technology</h4>
-        <p id="modal-stack" class="text-sm text-gray-700 leading-relaxed"></p>
-      </div>
-
-      <!-- Media Section -->
-      <div class="modal-section" id="media-section">
-        <h4 class="modal-section-header">Media</h4>
-        <video id="modal-video" controls class="w-full rounded-sm hidden mb-4">
-          <source id="modal-video-src" src="" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <img id="modal-img" class="w-full rounded-sm hidden" alt="Project image" />
-      </div>
-
-      <!-- Achievements Section -->
-      <div class="modal-section" id="achievements-section" style="display: none;">
-        <h4 class="modal-section-header">Achievements</h4>
-        <div id="modal-awards" class="flex gap-3 overflow-x-auto"></div>
-      </div>
-    </div>
-</div>
-
-<!-- CONTACT -->
-<section id="contact" class="py-32 gradient-bg">
-  <div class="container mx-auto px-6 lg:px-16 max-w-5xl">
-    <div class="fade-in text-center mb-16">
-      <span class="text-xs tracking-[0.3em] uppercase text-gray-500 font-medium">Get In Touch</span>
-      <h2 class="text-5xl font-light tracking-tight mt-4 mb-6">Let's Work Together</h2>
-      <p class="text-gray-600 text-lg max-w-2xl mx-auto">Have a project in mind? I'd love to hear about it and explore how we can create something exceptional together.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6 mb-12 fade-in">
-      <a href="mailto:charlene.cansing@gmail.com" class="card-hover bg-white p-8 rounded-sm text-center group">
-        <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 transition-colors">
-          <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-          </svg>
-        </div>
-        <h3 class="font-medium mb-2">Email</h3>
-        <p class="text-sm text-gray-600 break-all">charlene.cansing@gmail.com</p>
-      </a>
-
-      <a href="https://linkedin.com/in/charlenecansing" target="_blank" rel="noopener" class="card-hover bg-white p-8 rounded-sm text-center group">
-        <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 transition-colors">
-          <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </div>
-        <h3 class="font-medium mb-2">LinkedIn</h3>
-        <p class="text-sm text-gray-600 break-all">linkedin.com/in/charlenecansing</p>
-      </a>
-
-      <a href="https://github.com/chacnsng" target="_blank" rel="noopener" class="card-hover bg-white p-8 rounded-sm text-center group">
-        <div class="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 transition-colors">
-          <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
-        </div>
-        <h3 class="font-medium mb-2">GitHub</h3>
-        <p class="text-sm text-gray-600 break-all">github.com/chacnsng</p>
-      </a>
-    </div>
-
-    <form action="https://formspree.io/f/xblzdope" method="POST" class="space-y-6 fade-in bg-white p-10 lg:p-12 rounded-sm shadow-lg max-w-4xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label for="name" class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase">Name</label>
-          <input id="name" type="text" name="name" placeholder="John Doe" required 
-                 class="w-full border border-gray-200 px-4 py-3 rounded-sm text-sm transition-all duration-300 focus:border-gray-900" />
-        </div>
-        <div>
-          <label for="email" class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase">Email</label>
-          <input id="email" type="email" name="email" placeholder="john@example.com" required 
-                 class="w-full border border-gray-200 px-4 py-3 rounded-sm text-sm transition-all duration-300 focus:border-gray-900" />
-        </div>
-      </div>
-      <div>
-        <label for="message" class="block text-xs font-medium text-gray-700 mb-2 tracking-wide uppercase">Message</label>
-        <textarea id="message" name="message" placeholder="Tell me about your project..." required 
-                  class="w-full border border-gray-200 px-4 py-3 h-40 rounded-sm text-sm transition-all duration-300 resize-none focus:border-gray-900"></textarea>
-      </div>
-      <button type="submit" class="btn-primary w-full px-8 py-4 bg-gray-900 text-white text-xs tracking-widest hover:bg-gray-800 transition-all">
-        SEND MESSAGE
-      </button>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="bg-white border-t border-gray-100 py-12">
-  <div class="container mx-auto px-6 lg:px-16 max-w-7xl">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-sm text-gray-500">© 2026 Charlene Cansing. All rights reserved.</p>
-      <div class="flex gap-6">
-        <a href="mailto:charlene.cansing@gmail.com" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Email">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-          </svg>
-        </a>
-        <a href="https://linkedin.com/in/charlenecansing" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href="https://github.com/chacnsng" target="_blank" rel="noopener" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="GitHub">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-// Mobile menu
-document.getElementById("mobile-menu-button").onclick = () =>
-  document.getElementById("mobile-menu").classList.toggle("hidden");
-
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-  link.onclick = () => document.getElementById("mobile-menu").classList.add("hidden");
-});
-
-// Scroll animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-});
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Modal
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modal-title");
-const modalDesc = document.getElementById("modal-desc");
-const modalRole = document.getElementById("modal-role");
-const modalStack = document.getElementById("modal-stack");
-const modalImg = document.getElementById("modal-img");
-const modalVideo = document.getElementById("modal-video");
-const modalVideoSrc = document.getElementById("modal-video-src");
-const modalAwards = document.getElementById("modal-awards");
-const modalClose = document.getElementById("modal-close");
-
-// Open project overview modal when a project card is clicked
-document.querySelectorAll('.project-card').forEach(card => {
-  card.onclick = () => {
-    // Reset modal container to normal styling for projects
-    const modalContent = document.querySelector('#modal > div');
-    modalContent.style.maxHeight = '90vh';
-    modalContent.style.maxWidth = '40rem';
-    modalContent.style.padding = '1.5rem';
-
-    // Restore sections that the certificate view hides
-    document.getElementById('about-section').style.display = 'block';
-    document.getElementById('media-section').style.display = 'block';
-    
-    const title = card.querySelector('h3')?.innerText || card.dataset.title || '';
-    const desc = card.dataset.desc || card.querySelector('p')?.innerText || '';
-    const imgSrc = card.dataset.img || card.querySelector('img')?.getAttribute('src') || '';
-    const videoSrc = card.dataset.video || '';
-
-    modalTitle.textContent = title;
-    modalDesc.textContent = desc;
-    
-    // role and tech stack
-    const roleText = card.dataset.role || '';
-    const stackText = card.dataset.stack || '';
-    
-    if (roleText) {
-      modalRole.textContent = '👤 ' + roleText;
-    } else {
-      modalRole.textContent = '';
-    }
-    
-    // Show/hide tech section
-    if (stackText) {
-      modalStack.textContent = stackText;
-      document.getElementById('tech-section').style.display = 'block';
-    } else {
-      document.getElementById('tech-section').style.display = 'none';
-    }
-
-    // main image
-    if (imgSrc) {
-      modalImg.src = imgSrc;
-      modalImg.classList.remove('hidden');
-    } else {
-      modalImg.classList.add('hidden');
-      modalImg.src = '';
-    }
-
-    // Show media section header for projects
-    document.querySelector('#media-section h4').style.display = 'block';
-
-    // video
-    if (videoSrc) {
-      modalVideoSrc.src = videoSrc;
-      modalVideo.load();
-      modalVideo.classList.remove('hidden');
-    } else {
-      modalVideo.pause();
-      modalVideoSrc.src = '';
-      modalVideo.classList.add('hidden');
-    }
-
-    // awards / extra images (src::description pairs, separated by |)
-    modalAwards.innerHTML = '';
-    const awardsList = (card.dataset.awards || '').split('|').filter(Boolean);
-    document.getElementById('achievements-section').style.display = awardsList.length > 0 ? 'block' : 'none';
-    awardsList.forEach(item => {
-      const parts = item.split('::');
-      const src = parts[0]?.trim();
-      const desc = parts[1]?.trim() || '';
-      if (!src) return;
-
-      const wrapper = document.createElement('div');
-      wrapper.className = 'award-item';
-
-      const thumb = document.createElement('img');
-      thumb.src = src;
-      thumb.className = 'object-cover rounded-sm border border-gray-200 cursor-pointer';
-
-      const caption = document.createElement('p');
-      caption.className = 'award-caption';
-      caption.textContent = desc;
-
-      wrapper.appendChild(thumb);
-      wrapper.appendChild(caption);
-      modalAwards.appendChild(wrapper);
-    });
-
-    modal.classList.remove('hidden');
-  };
-});
-
-// Keep certificate card clicks showing image-only modal
-document.querySelectorAll('.cert-card').forEach(card => {
-  card.onclick = () => {
-    const imgSrc = card.querySelector('img')?.src || '';
-    
-    // Hide all sections
-    document.getElementById('about-section').style.display = 'none';
-    document.getElementById('tech-section').style.display = 'none';
-    document.getElementById('media-section').style.display = 'none';
-    document.getElementById('achievements-section').style.display = 'none';
-    
-    // Clear header elements
-    modalTitle.textContent = '';
-    modalRole.textContent = '';
-    modalDesc.textContent = '';
-    
-    // Hide video and show only image
-    modalImg.src = imgSrc;
-    modalImg.classList.remove('hidden');
-    modalImg.style.maxHeight = 'auto';
-    modalImg.style.width = 'auto';
-    modalImg.style.maxWidth = '100%';
-    modalVideo.pause();
-    modalVideo.classList.add('hidden');
-    
-    // Show media section but keep it minimal (just the image)
-    const mediaSection = document.getElementById('media-section');
-    mediaSection.style.display = 'block';
-    mediaSection.querySelector('h4').style.display = 'none';
-    
-    modal.classList.remove('hidden');
-  };
-});
-
-modal.onclick = (e) => {
-  if (e.target === modal) {
-    modalVideo.pause();
-    modal.classList.add('hidden');
-  }
-};
-modalClose.onclick = () => {
-  modalVideo.pause();
-  modal.classList.add('hidden');
-};
-
-// Header shadow on scroll
-const header = document.querySelector('header');
-window.addEventListener('scroll', () => {
-  if (window.pageYOffset > 50) {
-    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
-  } else {
-    header.style.boxShadow = 'none';
-  }
-});
-
-// Carousel navigation
-function carouselSlide(button, direction) {
-  const carousel = button.closest('.carousel-container').querySelector('.carousel-wrapper');
-  const slideWidth = carousel.querySelector('[style*="min-width"]').offsetWidth;
-  carousel.scrollBy({
-    left: direction * slideWidth,
-    behavior: 'smooth'
-  });
-}
-</script>
-
-</body>
+    </footer>
+
+    <script>
+      // Mobile menu
+      document.getElementById("mobile-menu-button").onclick = () =>
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.onclick = () =>
+          document.getElementById("mobile-menu").classList.add("hidden");
+      });
+
+      // Scroll animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        },
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      // Modal
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDesc = document.getElementById("modal-desc");
+      const modalRole = document.getElementById("modal-role");
+      const modalStack = document.getElementById("modal-stack");
+      const modalImg = document.getElementById("modal-img");
+      const modalVideo = document.getElementById("modal-video");
+      const modalVideoSrc = document.getElementById("modal-video-src");
+      const modalAwards = document.getElementById("modal-awards");
+      const modalClose = document.getElementById("modal-close");
+
+      // Open project overview modal when a project card is clicked
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.onclick = () => {
+          // Reset modal container to normal styling for projects
+          const modalContent = document.querySelector("#modal > div");
+          modalContent.style.maxHeight = "90vh";
+          modalContent.style.maxWidth = "40rem";
+          modalContent.style.padding = "1.5rem";
+
+          // Restore sections that the certificate view hides
+          document.getElementById("about-section").style.display = "block";
+          document.getElementById("media-section").style.display = "block";
+
+          const title =
+            card.querySelector("h3")?.innerText || card.dataset.title || "";
+          const desc =
+            card.dataset.desc || card.querySelector("p")?.innerText || "";
+          const imgSrc =
+            card.dataset.img ||
+            card.querySelector("img")?.getAttribute("src") ||
+            "";
+          const videoSrc = card.dataset.video || "";
+
+          modalTitle.textContent = title;
+          modalDesc.textContent = desc;
+
+          // role and tech stack
+          const roleText = card.dataset.role || "";
+          const stackText = card.dataset.stack || "";
+
+          if (roleText) {
+            modalRole.textContent = "👤 " + roleText;
+          } else {
+            modalRole.textContent = "";
+          }
+
+          // Show/hide tech section
+          if (stackText) {
+            modalStack.textContent = stackText;
+            document.getElementById("tech-section").style.display = "block";
+          } else {
+            document.getElementById("tech-section").style.display = "none";
+          }
+
+          // main image
+          if (imgSrc) {
+            modalImg.src = imgSrc;
+            modalImg.classList.remove("hidden");
+          } else {
+            modalImg.classList.add("hidden");
+            modalImg.src = "";
+          }
+
+          // Show media section header for projects
+          document.querySelector("#media-section h4").style.display = "block";
+
+          // video
+          if (videoSrc) {
+            modalVideoSrc.src = videoSrc;
+            modalVideo.load();
+            modalVideo.classList.remove("hidden");
+          } else {
+            modalVideo.pause();
+            modalVideoSrc.src = "";
+            modalVideo.classList.add("hidden");
+          }
+
+          // awards / extra images (src::description pairs, separated by |)
+          modalAwards.innerHTML = "";
+          const awardsList = (card.dataset.awards || "")
+            .split("|")
+            .filter(Boolean);
+          document.getElementById("achievements-section").style.display =
+            awardsList.length > 0 ? "block" : "none";
+          awardsList.forEach((item) => {
+            const parts = item.split("::");
+            const src = parts[0]?.trim();
+            const desc = parts[1]?.trim() || "";
+            if (!src) return;
+
+            const wrapper = document.createElement("div");
+            wrapper.className = "award-item";
+
+            const thumb = document.createElement("img");
+            thumb.src = src;
+            thumb.className =
+              "object-cover rounded-sm border border-gray-200 cursor-pointer";
+
+            const caption = document.createElement("p");
+            caption.className = "award-caption";
+            caption.textContent = desc;
+
+            wrapper.appendChild(thumb);
+            wrapper.appendChild(caption);
+            modalAwards.appendChild(wrapper);
+          });
+
+          modal.classList.remove("hidden");
+        };
+      });
+
+      // Keep certificate card clicks showing image-only modal
+      document.querySelectorAll(".cert-card").forEach((card) => {
+        card.onclick = () => {
+          const imgSrc = card.querySelector("img")?.src || "";
+
+          // Hide all sections
+          document.getElementById("about-section").style.display = "none";
+          document.getElementById("tech-section").style.display = "none";
+          document.getElementById("media-section").style.display = "none";
+          document.getElementById("achievements-section").style.display =
+            "none";
+
+          // Clear header elements
+          modalTitle.textContent = "";
+          modalRole.textContent = "";
+          modalDesc.textContent = "";
+
+          // Hide video and show only image
+          modalImg.src = imgSrc;
+          modalImg.classList.remove("hidden");
+          modalImg.style.maxHeight = "auto";
+          modalImg.style.width = "auto";
+          modalImg.style.maxWidth = "100%";
+          modalVideo.pause();
+          modalVideo.classList.add("hidden");
+
+          // Show media section but keep it minimal (just the image)
+          const mediaSection = document.getElementById("media-section");
+          mediaSection.style.display = "block";
+          mediaSection.querySelector("h4").style.display = "none";
+
+          modal.classList.remove("hidden");
+        };
+      });
+
+      modal.onclick = (e) => {
+        if (e.target === modal) {
+          modalVideo.pause();
+          modal.classList.add("hidden");
+        }
+      };
+      modalClose.onclick = () => {
+        modalVideo.pause();
+        modal.classList.add("hidden");
+      };
+
+      // Header shadow on scroll
+      const header = document.querySelector("header");
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 50) {
+          header.style.boxShadow = "0 2px 20px rgba(0,0,0,0.05)";
+        } else {
+          header.style.boxShadow = "none";
+        }
+      });
+
+      // Carousel navigation
+      function carouselSlide(button, direction) {
+        const carousel = button
+          .closest(".carousel-container")
+          .querySelector(".carousel-wrapper");
+        const slideWidth = carousel.querySelector(
+          '[style*="min-width"]',
+        ).offsetWidth;
+        carousel.scrollBy({
+          left: direction * slideWidth,
+          behavior: "smooth",
+        });
+      }
+    </script>
+  </body>
 </html>
